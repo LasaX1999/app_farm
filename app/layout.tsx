@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
 import { Inter,Fjalla_One,Oswald } from "next/font/google";
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs'
 
 import "./globals.css";
 
@@ -19,8 +26,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={oswald.className}>{children}</body>
     </html>
+    </ClerkProvider>
   );
 }
