@@ -1,9 +1,26 @@
-import React from 'react'
+import React from "react";
+import { HiShoppingCart } from "react-icons/hi2";
 
 function Header() {
   return (
-    <div>Header</div>
-  )
+    <div className="p-3 border-b-2 border-[#F5F3FF]">
+
+      <div className="max-w-7xl mx-auto flex justify-between  items-center">
+
+        <div className="flex items-center">
+          <h1 className="ml-2 text-2xl lg:text-3xl">
+            🥬FARM TO <span className="text-[#86D72F]">MARKET</span>
+          </h1>
+        </div>
+
+        <div className="flex items-center relative">
+          <HiShoppingCart className="text-3xl cursor-pointer" />
+          <div className="ml-2 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-sm font-semibold">1</div>
+        </div>
+
+      </div>
+    </div>
+  );
 }
 
-export default Header
+export default Header;
