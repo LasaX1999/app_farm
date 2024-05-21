@@ -14,7 +14,7 @@ function Header() {
         </div>
 
         <div className="flex items-center relative">
-          <HiShoppingCart className="text-3xl cursor-pointer" />
+          <HiShoppingCart className="text-3xl cursor-pointer hover:scale-110" />
           <div className="ml-2 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-sm font-semibold">1</div>
         </div>
 
