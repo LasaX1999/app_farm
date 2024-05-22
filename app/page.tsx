@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Header from "./components/Header";
 import Card from "./components/Card";
+import ImageSlider from './components/Image-Silder'
 
 export default function Home() {
   return (
@@ -16,6 +17,8 @@ export default function Home() {
           paltform
         </p>
       </div>
+
+    <ImageSlider/>
 
       <div className="p-8 flex ">
        
