@@ -1,5 +1,6 @@
 import { defineConfig } from "sanity";
 import { deskTool } from "sanity/desk";
+import schemas from './sanity/schemas'
 
 
 const config = defineConfig({
@@ -8,7 +9,7 @@ const config = defineConfig({
     basePath:"/admin",
     title:'farm',
     plugins:[deskTool()],
-    schemas:{},
+    schemas:{types:schemas},
 
 })
 
