@@ -27,7 +27,7 @@ function Header() {
           
           </div>
 
-          <div className="flex items-center justify-center mt-5 ">
+          <div className="flex items-center justify-center mt-4 ">
           <HoverMenu />
           </div>
      
