@@ -2,9 +2,9 @@
 
 
 const nextConfig = {
-    images: {
-      domains: ['images.unsplash.com'],
-    }
+  images: {
+    domains: ['images.unsplash.com'],
   }
+}
 
 export default nextConfig;

@@ -27,7 +27,7 @@ export default function Home() {
 
     <div className="mt-8 mb-8 flex flex-col justify-center items-center gap-4 text-3xl">
       
-      <h1 className="lg:text-8xl text-4xl mb-8 "> Selling with us - 3 easy steps </h1>
+      <h1 className="lg:text-8xl text-4xl mb-8 font-light"> Selling with us - 3 easy steps </h1>
 
       <div className="flex gap-20  p-4 ">
       <div className="flex flex-col gap-4 justify-center items-center">
