@@ -11,9 +11,11 @@ function Header() {
       <div className="max-w-7xl mx-auto flex justify-between  items-center">
 
         <div className="flex items-center">
+          <Link href={"/"}>
           <h1 className="ml-2 text-xl lg:text-3xl">
             🥬FARM TO <span className="text-[#86D72F]">MARKET</span>
           </h1>
+          </Link>
         </div>
 
         <div className="flex items-center relative ">
