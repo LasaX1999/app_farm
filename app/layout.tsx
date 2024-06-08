@@ -10,9 +10,10 @@ import {
 
 import "./globals.css";
 
+
 const oswald = Oswald({
   subsets: ["latin"],
- 
+  weight: ['400', '700'],
 });
 
 export const metadata: Metadata = {
@@ -28,7 +29,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
     <html lang="en">
-      <body className={oswald.className}>{children}</body>
+    <body className={oswald.className}>{children}</body>
     </html>
     </ClerkProvider>
   );
