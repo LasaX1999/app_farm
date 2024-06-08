@@ -1,4 +1,5 @@
 // components/HoverMenu.js
+'use client'
 import { useState } from 'react';
 import Link from 'next/link';
 import { FaUser } from 'react-icons/fa6';
