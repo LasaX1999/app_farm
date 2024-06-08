@@ -57,17 +57,19 @@ export default function Shop() {
     <div>
       <Header />
       <h1 className='text-3xl text-center pt-4'>Food Shop</h1>
-      <div className='flex flex-wrap items-center   justify-center'>
+      <div className='flex flex-wrap items-center justify-center'>
         {data.map((user) => (
           <div key={user._id} className='m-5 border border-gray-300 p-4 rounded-lg max-w-xs'>
             {user.imageUrl && (
-              <Image
-                src={user.imageUrl}
-                alt={user.title}
-                width={300}
-                height={300}
-                className='w-full h-auto object-cover'
-              />
+              <div className='relative w-full h-48'>
+                <Image
+                  src={user.imageUrl}
+                  alt={user.title}
+                  layout='fill'
+                  objectFit='cover'
+                  className='rounded-lg'
+                />
+              </div>
             )}
             <div className='flex flex-col text-center justify-center items-center border-t-2 border-green-400 mt-2 pt-2'>
               <h2 className='text-xl font-semibold'>{user.title}</h2>
@@ -76,7 +78,7 @@ export default function Shop() {
             </div>
             <div className="btn flex justify-center items-center gap-4 ">
               <div className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md">Get Now</div>
-            <MdAddShoppingCart className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12' />
+              <MdAddShoppingCart className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12' />
             </div>
           </div>
         ))}
