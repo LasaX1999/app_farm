@@ -1,36 +1,92 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Overview
+
+Farm Web is a farm-to-market food website that connects local farmers with consumers, offering fresh, locally-sourced produce. The platform includes features such as farmer profiles, product listings, and an easy-to-use ordering system.
+
+## Features
+
+-   **Farmer Profiles**: Detailed profiles for each farmer, including their products and farming practices.
+-   **Product Listings**: Comprehensive listings of available products with descriptions and prices.
+-   **Ordering System**: Easy-to-use interface for placing orders and managing purchases.
+
+## Tech Stack
+
+-   **Framework**: [Next.js](https://nextjs.org/)
+-   **Languages**: TypeScript, JavaScript, CSS
+-   **Database**: Sanity.io for content management
+-   **Styling**: Tailwind CSS
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Ensure you have the following installed:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+-   Node.js
+-   npm or yarn
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Clone the repository and install dependencies:
+
+`git clone https://github.com/ItsLasa/app_farm.git
+cd app_farm
+npm install` 
+
+### Running the Development Server
+
+Start the development server:
+
+
+`npm run dev` 
+
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+### Building for Production
+
+Build the application for production:
+
+
+`npm run build
+npm start` 
+
+## Project Structure
+
+-   `app/`: Main application code.
+-   `public/`: Static assets.
+-   `sanity/`: Sanity.io configuration and schemas.
+-   `schemaTypes/`: Sanity schema types.
+-   `utils/`: Utility functions.
+-   `.env`: Environment variables.
+-   `next.config.mjs`: Next.js configuration.
+-   `tailwind.config.ts`: Tailwind CSS configuration.
+-   `tsconfig.json`: TypeScript configuration.
+
+## Configuration
+
+Create a `.env` file in the root of your project and add your environment variables:
+
+
+
+
+- NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+- NEXT_PUBLIC_SANITY_DATASET=your_sanity_dataset`
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use [Vercel](https://vercel.com/). Check out the Next.js deployment documentation for more details.
 
 ## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+To learn more about Next.js and related technologies, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+-   Next.js Documentation - Learn about Next.js features and API.
+-   Sanity.io Documentation - Learn about Sanity.io.
+-   [Tailwind CSS Documentation](https://tailwindcss.com/docs) - Learn about Tailwind CSS.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions are welcome! Please open an issue or submit a pull request.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License.
