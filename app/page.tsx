@@ -7,20 +7,25 @@ import { FaApple, FaShop } from "react-icons/fa6";
 import { FaProcedures } from "react-icons/fa";
 import { GiFruitTree } from "react-icons/gi";
 import { CiDeliveryTruck } from "react-icons/ci";
+import { FlipWords } from "@/app/components/ui/flip_words";
 
 export default function Home() {
+
+  const words = ["Vegitables", "Fruits", "Seeds", "Meat","Eggs"];
+  
   return (
     <main>
       <Header />
 
-      <div className="flex flex-col items-center justify-center mt-2 mb-2 ">
-        <h1 className="text-4xl text-orange-600">Shop Local Products</h1>
 
-        <p className="text-center text-gray-600 text-xl">
-          Your farm produts supply to consumer doordash for easy way web
-          paltform
-        </p>
+      <div className=" flex justify-center items-center px-4">
+      <div className="text-4xl mx-auto text-center pb-2 pt-2 text-orange-600">
+        Shop Local
+        <FlipWords  words={words} /> <br />
+        <span className="text-2xl text-gray-600 ">Your farm produts supply to consumer doordash for easy way web paltform</span>
       </div>
+    </div>
+      
 
     <ImageSlider/>
 
