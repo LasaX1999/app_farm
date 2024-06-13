@@ -4,9 +4,10 @@ import React from "react";
 import { HiShoppingCart } from "react-icons/hi2";
 import HoverMenu from "./HoverUser";
 
+
 function Header() {
   return (
-    <div className="p-3 border-b-2 border-[#F5F3FF]">
+    <div className=" border-b-2 border-[#F5F3FF]">
 
       <div className="max-w-7xl mx-auto flex justify-between  items-center">
 
