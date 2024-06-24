@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { client } from '@/sanity/client';
 import Image from 'next/image';
 import { MdAddShoppingCart } from 'react-icons/md';
+import Link from 'next/link';
 
 // Fetch data from Sanity
 async function fetchUsers() {
@@ -67,7 +68,7 @@ export default function Shop() {
                   alt={user.title}
                   layout='fill'
                   objectFit='cover'
-                  className='rounded-lg'
+                  className='rounded-lg duration-300 transition-all hover:scale-105'
                 />
               </div>
             )}
@@ -77,7 +78,8 @@ export default function Shop() {
               <p className='text-sm text-gray-600 pb-4'>{user.description}</p>
             </div>
             <div className="btn flex justify-center items-center gap-4 ">
-              <div className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md">Get Now</div>
+              <Link className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md" href={'/payment'} >Get Now</Link>
+              {/* <div className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md">Get Now</div> */}
               <MdAddShoppingCart className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12' />
             </div>
           </div>
