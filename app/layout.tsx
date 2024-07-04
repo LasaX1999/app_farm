@@ -1,15 +1,15 @@
+// app/layout.tsx or _app.tsx
 import type { Metadata } from "next";
-import { Inter,Fjalla_One,Oswald } from "next/font/google";
+import { Inter, Fjalla_One, Oswald } from "next/font/google";
 import {
   ClerkProvider,
   SignInButton,
   SignedIn,
   SignedOut,
   UserButton
-} from '@clerk/nextjs'
-
+} from '@clerk/nextjs';
+import { CartProvider } from '@/app/context/CartContext';
 import "./globals.css";
-
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -28,9 +28,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-    <body className={oswald.className}>{children}</body>
-    </html>
+      <CartProvider>
+        <html lang="en">
+          <body className={oswald.className}>{children}</body>
+        </html>
+      </CartProvider>
     </ClerkProvider>
   );
 }
