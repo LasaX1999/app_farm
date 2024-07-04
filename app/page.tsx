@@ -8,6 +8,7 @@ import { FaProcedures } from "react-icons/fa";
 import { GiFruitTree } from "react-icons/gi";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { FlipWords } from "@/app/components/ui/flip_words";
+import Footer from "./components/Footer";
 
 export default function Home() {
 
@@ -70,6 +71,7 @@ export default function Home() {
           
         </div>
       </div> */}
+      <Footer/>
     </main>
   );
 }
