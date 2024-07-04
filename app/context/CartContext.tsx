@@ -1,20 +1,31 @@
-"use client"
-import { createContext, useContext, useState, ReactNode } from 'react';
+// app/context/CartContext.tsx
+'use client'
+import { createContext, useState, ReactNode, useContext } from 'react';
 
-interface CartContextProps {
-  cartCount: number;
-  incrementCart: () => void;
+interface Product {
+  _id: string;
+  title: string;
+  imageUrl: string;
+  price: number;
+  description: string;
 }
 
-const CartContext = createContext<CartContextProps | undefined>(undefined);
+interface CartContextType {
+  cart: Product[];
+  addToCart: (product: Product) => void;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
-  const [cartCount, setCartCount] = useState(0);
+  const [cart, setCart] = useState<Product[]>([]);
 
-  const incrementCart = () => setCartCount((prevCount) => prevCount + 1);
+  const addToCart = (product: Product) => {
+    setCart((prevCart) => [...prevCart, product]);
+  };
 
   return (
-    <CartContext.Provider value={{ cartCount, incrementCart }}>
+    <CartContext.Provider value={{ cart, addToCart }}>
       {children}
     </CartContext.Provider>
   );
