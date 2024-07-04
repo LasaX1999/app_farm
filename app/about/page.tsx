@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function page() {
   return (
@@ -60,6 +61,7 @@ function page() {
           </a>
         </div>
       </div>
+      <Footer/>
     </main>
   );
 }
