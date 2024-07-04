@@ -1,3 +1,4 @@
+// pages/shop.tsx
 'use client';
 
 import Header from '@/app/components/Header';
@@ -6,6 +7,7 @@ import { client } from '@/sanity/client';
 import Image from 'next/image';
 import { MdAddShoppingCart } from 'react-icons/md';
 import Link from 'next/link';
+import { useCart } from '@/app/context/CartContext';
 
 // Fetch data from Sanity
 async function fetchUsers() {
@@ -21,6 +23,7 @@ async function fetchUsers() {
 }
 
 export default function Shop() {
+  const { addToCart } = useCart();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -79,8 +82,10 @@ export default function Shop() {
             </div>
             <div className="btn flex justify-center items-center gap-4 ">
               <Link className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md" href={'/payment'} >Get Now</Link>
-              {/* <div className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md">Get Now</div> */}
-              <MdAddShoppingCart className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12' />
+              <MdAddShoppingCart
+                className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12'
+                onClick={() => addToCart(user)}
+              />
             </div>
           </div>
         ))}
