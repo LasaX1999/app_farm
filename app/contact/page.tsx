@@ -3,6 +3,7 @@ import { ValidationError, useForm } from "@formspree/react";
 import Link from "next/link";
 import React, { useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Form() {
   const [state, handleSubmit] = useForm("xbjnwwzj");
@@ -86,6 +87,7 @@ export default function Form() {
         </div>
       </form>
     </div>
+    <Footer/>
 
 </main>
  
