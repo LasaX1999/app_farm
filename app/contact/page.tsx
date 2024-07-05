@@ -23,8 +23,8 @@ export default function Form() {
 
   <Header />
 
-   <div className="flex-col flex justify-center items-center ">
-      <form   action="https://formspree.io/f/xbjnwwzj"  method="post" className="flex-col p-10 mt-8 mb-8 rounded-md w-[50rem] "
+   <div className="flex-col flex justify-center items-center  0 ">
+      <form   action="https://formspree.io/f/xbjnwwzj"  method="post" className="flex-col bg-slate-50 shadow-lg border p-10 mt-8 mb-8 rounded-md w-[50rem] "
       >
         <div className="flex-col flex gap-2 mb-4">
           <label className="text-xl" htmlFor="fullname">
