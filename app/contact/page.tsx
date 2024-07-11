@@ -23,7 +23,8 @@ export default function Form() {
 
   <Header />
 
-   <div className="flex-col flex justify-center items-center  0 ">
+   <div className="flex-col flex justify-center items-center  ">
+    <h1 className="mt-3 text-xl lg:text-4xl bg-gradient-to-tl from-emerald-600 via-purple-400 to-indigo-700 bg-clip-text text-transparent">Contact Form 🔖</h1>
       <form   action="https://formspree.io/f/xbjnwwzj"  method="post" className="flex-col bg-slate-50 shadow-lg border p-10 mt-8 mb-8 rounded-md w-[50rem] "
       >
         <div className="flex-col flex gap-2 mb-4">
