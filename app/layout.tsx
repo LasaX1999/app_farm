@@ -1,6 +1,6 @@
 // app/layout.tsx or _app.tsx
 import type { Metadata } from "next";
-import { Inter, Fjalla_One, Oswald } from "next/font/google";
+import { Inter, Fjalla_One, Oswald,Bebas_Neue,Anton,Inter_Tight,Prata ,Staatliches} from "next/font/google";
 import {
   ClerkProvider,
   SignInButton,
@@ -14,7 +14,11 @@ import { Toaster } from "react-hot-toast";
 
 const oswald = Oswald({
   subsets: ["latin"],
-  weight: ['400', '700'],
+  weight: ['500', '700'],
+});
+const bebas = Bebas_Neue({
+  subsets: ["latin"],
+  weight: "400"
 });
 
 export const metadata: Metadata = {
@@ -34,7 +38,7 @@ export default function RootLayout({
 
         <html lang="en">
        
-          <body className={oswald.className}>
+          <body className={bebas.className}>
             {children}
             <Toaster/>
 
