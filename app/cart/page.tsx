@@ -1,11 +1,11 @@
-// pages/cart.tsx
 'use client';
 import { useCart } from '@/app/context/CartContext';
 import Header from '@/app/components/Header';
 import Image from 'next/image';
+import { MdDelete } from 'react-icons/md';
 
 export default function Cart() {
-  const { cart } = useCart();
+  const { cart, removeFromCart } = useCart();
 
   return (
     <div>
@@ -32,6 +32,12 @@ export default function Cart() {
                 <h2 className='text-xl font-semibold'>{product.title}</h2>
                 <p className='text-lg font-medium'>{product.price}</p>
                 <p className='text-sm text-gray-600'>{product.description}</p>
+                <button
+                  className='mt-2 bg-red-500 text-white py-1 px-3 rounded flex items-center'
+                  onClick={() => removeFromCart(product._id)}
+                >
+                  <MdDelete className='mr-1' /> Delete
+                </button>
               </div>
             </div>
           ))
