@@ -10,6 +10,7 @@ import {
 } from '@clerk/nextjs';
 import { CartProvider } from '@/app/context/CartContext';
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 
 const oswald = Oswald({
   subsets: ["latin"],
@@ -29,9 +30,19 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <CartProvider>
+      
+
         <html lang="en">
-          <body className={oswald.className}>{children}</body>
+       
+          <body className={oswald.className}>
+            {children}
+            <Toaster/>
+
+          </body>
+          
         </html>
+        
+       
       </CartProvider>
     </ClerkProvider>
   );
