@@ -11,9 +11,9 @@ function Header() {
 
       <div className="max-w-7xl mx-auto flex justify-between  items-center">
 
-        <div className="flex items-center">
+        <div className="flex items-center group">
           <Link href={"/"}>
-          <h1 className="ml-2 text-xl lg:text-3xl">
+          <h1 className="ml-2 text-xl lg:text-3xl group-hover:scale-105 transition-all duration-300">
             🥬FARM TO <span className="text-[#86D72F]">MARKET</span>
           </h1>
           </Link>
