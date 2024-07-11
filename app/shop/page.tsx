@@ -8,6 +8,10 @@ import Image from 'next/image';
 import { MdAddShoppingCart } from 'react-icons/md';
 import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
+import toast from 'react-hot-toast';
+
+
+
 
 // Fetch data from Sanity
 async function fetchUsers() {
@@ -81,11 +85,17 @@ export default function Shop() {
               <p className='text-sm text-gray-600 pb-4'>{user.description}</p>
             </div>
             <div className="btn flex justify-center items-center gap-4 ">
-              <Link className="hover:bg-black hover:text-white  buy flex justify-center cursor-pointer items-center bg-slate-200 border-[0.5px] border-[#0000002c]  w-60 h-10 rounded-md" href={'/payment'} >Get Now</Link>
+              <Link className="hover:bg-black hover:text-white transition-all duration-300   buy flex justify-center cursor-pointer items-center border shadow-lg bg-zinc-50  border-[#0000002c]  w-60 h-10 rounded-md" href={'/payment'} >Get Now</Link>
               <MdAddShoppingCart
-                className='text-2xl hover:cursor-pointer hover:text-green-500 hover:rotate-12'
-                onClick={() => addToCart(user)}
+                className='text-2xl hover:cursor-pointer hover:scale-110 transition-all duration-300   hover:text-green-500 hover:rotate-12'
+                onClick={() => {
+                  addToCart(user);
+                  toast.success('Successfully added to cart!');
+         
+                }}
+                
               />
+             
             </div>
           </div>
         ))}
