@@ -11,12 +11,14 @@ export default function Cart() {
     <div>
       <Header />
       <h1 className='text-3xl text-center pt-4'>Your Cart</h1>
-      <div className='flex flex-wrap items-center justify-center'>
+      <div className='flex flex-wrap items-center justify-center p-4'>
         {cart.length === 0 ? (
           <p className='text-xl'>Your cart is empty.</p>
         ) : (
           cart.map((product) => (
-            <div key={product._id} className='m-5 border border-gray-300 p-4 rounded-lg max-w-xs'>
+            <div 
+              key={product._id} 
+              className='m-5 border border-gray-300 p-4 rounded-lg w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg'>
               {product.imageUrl && (
                 <div className='relative w-full h-48'>
                   <Image
@@ -33,7 +35,7 @@ export default function Cart() {
                 <p className='text-lg font-medium'>{product.price}</p>
                 <p className='text-sm text-gray-600'>{product.description}</p>
                 <button
-                  className='mt-2 bg-red-500 text-white py-1 px-3 rounded flex items-center'
+                  className='mt-2 bg-red-500 text-white py-1 px-3 rounded flex items-center hover:bg-red-700 transition-colors duration-300'
                   onClick={() => removeFromCart(product._id)}
                 >
                   <MdDelete className='mr-1' /> Delete
