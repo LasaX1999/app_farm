@@ -21,7 +21,7 @@ function page() {
         <h1 className="mt-8 max-w-sm bg-gradient-to-br from-gray-500 via-teal-500 to-gray-500 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-4xl sm:text-6xl">
         Farmers Market Direct is your source for all-natural food.
         </h1>
-        <span className="mt-8 tracking-normal max-w-lg text-center text-xl leading-relaxed text-gray-800">
+        <span className="mt-8  tracking-wide font-oswald max-w-lg text-center text-xl leading-relaxed text-gray-800">
         Farm Market Direct, opened in 2024 by Mr.Manoj Lasantha came to fruition because
  we love the homegrown, homemade products found at the Farmers Market
  Our platform connects these  farmers, and artisans to you, the consumer,
