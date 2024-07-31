@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 
 function NeedLogin() {
@@ -19,7 +20,9 @@ function NeedLogin() {
             <h1 className="text-4xl lg:text-6xl font-bold tracking-wide">Welcome  <span className="text-green-700"> Farm</span>ToMarket Shop</h1>
             <div className="w-20 h-2 bg-green-700 my-4"></div>
             <p className="text-xl mb-10">Please log in to view the shop content.</p>
-            <button className="bg-green-500 text-white text-2xl font-medium px-4 py-2 rounded shadow">Learn More</button>
+            <button className="bg-green-500 text-white text-2xl font-medium px-4 py-2 rounded shadow">
+            <Link href="/sign-in" className="m-1 hover:underline">Sign In</Link>
+            </button>
           </div>
         </header>
       </div>
