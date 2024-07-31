@@ -9,9 +9,7 @@ import { MdAddShoppingCart } from 'react-icons/md';
 import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
 import toast from 'react-hot-toast';
-
-
-
+import { useUser } from '@clerk/nextjs';
 
 // Fetch data from Sanity
 async function fetchUsers() {
@@ -27,6 +25,7 @@ async function fetchUsers() {
 }
 
 export default function Shop() {
+  const { isSignedIn } = useUser();
   const { addToCart } = useCart();
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -58,6 +57,8 @@ export default function Shop() {
     return () => subscription.unsubscribe();
   }, []);
 
+  if (!isSignedIn) return <p>Please log in to view the shop content.</p>;
+
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
@@ -65,9 +66,9 @@ export default function Shop() {
     <div>
       <Header />
       <h1 className='text-3xl text-center pt-4'>Food Shop</h1>
-      <div className='flex flex-wrap items-center justify-center'>
+      <div className='flex flex-wrap items-center justify-center '>
         {data.map((user) => (
-          <div key={user._id} className='m-5 border border-gray-300 p-4 rounded-lg max-w-xs'>
+          <div key={user._id} className='m-5 border cursor-pointer shadow-lg bg-gradient-to-r from-gray-50 to-slate-50 p-4 rounded-lg max-w-xs'>
             {user.imageUrl && (
               <div className='relative w-full h-48'>
                 <Image
@@ -79,23 +80,21 @@ export default function Shop() {
                 />
               </div>
             )}
-            <div className='flex flex-col text-center justify-center items-center border-t-2 border-green-400 mt-2 pt-2'>
-              <h2 className='text-xl font-semibold'>{user.title}</h2>
+            <div className='flex flex-col text-center  justify-center items-center border-t-2 border-green-400 mt-2 pt-2'>
+              <h2 className='text-xl '>{user.title}</h2>
               <p className='text-lg font-medium'>{user.price}</p>
-              <p className='text-sm text-gray-600 pb-4'>{user.description}</p>
+              <p className='text-sm text-gray-600 font-oswald pb-4'>{user.description}</p>
             </div>
             <div className="btn flex justify-center items-center gap-4 ">
-              <Link className="hover:bg-black hover:text-white transition-all duration-300   buy flex justify-center cursor-pointer items-center border shadow-lg bg-zinc-50  border-[#0000002c]  w-60 h-10 rounded-md" href={'/payment'} >Get Now</Link>
+              <Link className="hover:bg-black hover:text-white transition-all duration-300 buy flex justify-center cursor-pointer items-center border shadow-lg bg-zinc-50 border-[#0000002c] w-60 h-10 rounded-md" href={'/payment'}
+              >Get Now</Link>
               <MdAddShoppingCart
-                className='text-2xl hover:cursor-pointer hover:scale-110 transition-all duration-300   hover:text-green-500 hover:rotate-12'
+                className='text-2xl hover:cursor-pointer hover:scale-110 transition-all duration-300 hover:text-green-500 hover:rotate-12'
                 onClick={() => {
                   addToCart(user);
                   toast.success('Successfully added to cart!');
-         
                 }}
-                
               />
-             
             </div>
           </div>
         ))}
