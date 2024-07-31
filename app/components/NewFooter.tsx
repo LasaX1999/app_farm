@@ -2,7 +2,7 @@ import React from 'react'
 
 function NewFooter() {
   return (
-    <footer className="font-sans tracking-wide bg-[#27282b] py-12 px-16">
+    <footer className="font-sans tracking-wide bg-[#27282b] py-12 px-16 mt-6">
     <div className="grid max-md-grid-cols-1 lg:grid-cols-2 gap-20">
       <div>
         <h4 className="text-gray-100 font-bold text-lg">About Us</h4>
