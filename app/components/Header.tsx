@@ -25,8 +25,8 @@ function Header() {
           <Link href={'/about'} className="lg:text-xl text-[18px]  mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">About  </Link>
           <Link href={'/contact'} className="lg:text-xl text-[18px]  mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">Contact </Link>
          <Link href={'/cart'}> <HiShoppingCart className="text-3xl cursor-pointer hover:scale-110" /></Link>
-          <div className="ml-2 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-sm font-semibold">1</div>
-          <div className="ml-4">
+          {/* <div className="ml-2 bg-green-500 rounded-full w-5 h-5 flex items-center justify-center text-white text-sm font-semibold">1</div> */}
+          <div className="ml-3">
           <UserButton afterSignOutUrl="/" />
           
           </div>
