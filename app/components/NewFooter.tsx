@@ -22,7 +22,7 @@ function NewFooter() {
             </div>
             <a href="javascript:void(0)" className="text-gray-100 text-sm ml-4">
               <small className="block">Tel</small>
-              <strong>180-548-2588</strong>
+              <strong>070-5746227</strong>
             </a>
           </li>
           <li className="flex items-center">
@@ -36,7 +36,7 @@ function NewFooter() {
             </div>
             <a href="javascript:void(0)" className="text-gray-100 text-sm ml-4">
               <small className="block">Mail</small>
-              <strong>info@example.com</strong>
+              <strong>farmmarket@online.com</strong>
             </a>
           </li>
         </ul>
@@ -64,7 +64,7 @@ function NewFooter() {
               </svg>
             </a>
           </li>
-          <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
+          {/* <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
             <a href="javascript:void(0)">
               <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#fff' viewBox="0 0 511 512">
                 <path
@@ -72,7 +72,7 @@ function NewFooter() {
                   data-original="#000000" />
               </svg>
             </a>
-          </li>
+          </li> */}
           <li className="bg-[#343538] h-10 w-10 rounded-full flex items-center justify-center shrink-0">
             <a href="javascript:void(0)">
               <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill='#fff'
@@ -120,8 +120,8 @@ function NewFooter() {
         </li>
       </ul>
 
-      <p className='text-sm text-gray-300 lg:ml-auto max-lg:mt-6'>Copyright © 2023<a href='https://readymadeui.com/'
-        target='_blank' className="hover:underline mx-1">ReadymadeUI</a>All Rights Reserved.</p>
+      <p className='text-sm text-gray-300 lg:ml-auto max-lg:mt-6'>Copyright © 2024
+       FarmToMarket All Rights Reserved.</p>
     </div>
   </footer>
   )
