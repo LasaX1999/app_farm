@@ -15,10 +15,12 @@ import { Toaster } from "react-hot-toast";
 const oswald = Oswald({
   subsets: ["latin"],
   weight: ['500', '700'],
+  
 });
 const bebas = Bebas_Neue({
   subsets: ["latin"],
-  weight: "400"
+  weight: "400",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
