@@ -18,7 +18,7 @@ export const userType = defineType({
     }),
     defineField({
       name: "price",
-      type: "string",
+      type: "number",
       title:'Price Of Food',
     }),
     defineField({
