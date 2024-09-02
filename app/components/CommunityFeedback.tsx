@@ -3,8 +3,8 @@ import React from "react";
 
 const Community = () => {
   return (
-    <div className="overflow-hidden bg-gray-800">
-      <div className="relative max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <div className="overflow-hidden mt-4 bg-gray-800">
+      <div className="relative max-w-[85rem] px-4 py-10  sm:px-6 lg:px-8 lg:py-14 mx-auto">
         {/* Title */}
         <div className="max-w-2xl w-3/4 lg:w-1/2 mb-6 sm:mb-10 md:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl text-white font-semibold">
@@ -19,30 +19,32 @@ const Community = () => {
           <div className="flex h-auto">
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  "With Preline, we're able to easily track our performance in
-                  full detail. It's become an essential tool for us to grow and
-                  engage with our audience."
+                <p className="text-base md:text-lg text-gray-800">
+                  "We're hooked! I like the fact they try and work with local
+                  businesses and they have some great food and groceries! Check
+                  it out."
                 </p>
               </div>
 
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image width={0} height={0}
-                      className="size-8 sm:h-[2.875rem] sm:w-[2.875rem] rounded-full"
-                      src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                    <Image
+                      width={46}
+                      height={46}
+                      className="rounded-full roun"
+                      src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTM4fHxtZW4lMjBmYWNlJTIwaW5kaWFufGVufDB8fDB8fHww"
                       alt="Avatar"
                     />
                   </div>
 
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Josh Tyson
+                      Nihal Alwis
                     </p>
-                    <p className="text-xs text-gray-500">
+                    {/* <p className="text-xs text-gray-500">
                       Product Manager | Capsule
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -54,30 +56,31 @@ const Community = () => {
           <div className="flex h-auto">
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  "In September, I will be using this theme for 2 years. I went
-                  through multiple updates and changes and I'm very glad to see
-                  the consistency and effort made by the team."
+                <p className="text-base md:text-lg text-gray-800">
+                  " Nothing beats ethically sourced products! Love supporting
+                  local businesses and families"
                 </p>
               </div>
 
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image width={0} height={0} 
-                      className="size-8 sm:h-[2.875rem] sm:w-[2.875rem] rounded-full"
-                      src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80"
+                    <Image
+                      width={46}
+                      height={46}
+                      className="rounded-full"
+                      src="https://plus.unsplash.com/premium_photo-1723568666044-1b066e26b1fb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzd8fGdpcmwlMjBmYWNlJTIwaW5kaWFufGVufDB8fDB8fHww"
                       alt="Avatar"
                     />
                   </div>
 
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Luisa
+                      Kumarai Jayakody
                     </p>
-                    <p className="text-xs text-gray-500">
+                    {/* <p className="text-xs text-gray-500">
                       Senior Director of Operations | Fitbit
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -89,30 +92,31 @@ const Community = () => {
           <div className="flex h-auto">
             <div className="flex flex-col bg-white rounded-xl">
               <div className="flex-auto p-4 md:p-6">
-                <p className="text-base italic md:text-lg text-gray-800">
-                  "Refreshing and thought-provoking design that changes my view
-                  about how I design websites. Great typography, modern clean
-                  white design, nice tones of color."
+                <p className="text-base md:text-lg text-gray-800">
+                  "Love shopping here!!! Great products and always friendly and
+                  helpful!!! Great food!."
                 </p>
               </div>
 
               <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
-                    <Image width={0} height={0}
-                      className="size-8 sm:h-[2.875rem] sm:w-[2.875rem] rounded-full"
-                      src="https://images.unsplash.com/photo-1579017331263-ef82f0bbc748?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=900&h=900&q=80"
+                    <Image
+                      width={46}
+                      height={46}
+                      className="rounded-full"
+                      src="https://images.unsplash.com/photo-1652278623788-1a876f493b31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fGdpcmwlMjBmYWNlJTIwaW5kaWFufGVufDB8fDB8fHww"
                       alt="Avatar"
                     />
                   </div>
 
                   <div className="grow">
                     <p className="text-sm sm:text-base font-semibold text-gray-800">
-                      Alisa Williams
+                      Abisheka Peries
                     </p>
-                    <p className="text-xs text-gray-500">
+                    {/* <p className="text-xs text-gray-500">
                       Entrepreneur | Happy customer
-                    </p>
+                    </p> */}
                   </div>
                 </div>
               </div>
@@ -176,35 +180,20 @@ const Community = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M0.990203 279.321C-1.11035 287.334 3.68307 295.534 11.6966 297.634L142.285 331.865C150.298 333.965 158.497 329.172 160.598 321.158C162.699 313.145 157.905 304.946 149.892 302.845L33.8132 272.418L64.2403 156.339C66.3409 148.326 61.5475 140.127 53.5339 138.026C45.5204 135.926 37.3213 140.719 35.2207 148.733L0.990203 279.321ZM424.31 252.289C431.581 256.26 440.694 253.585 444.664 246.314C448.635 239.044 445.961 229.931 438.69 225.96L424.31 252.289ZM23.0706 296.074C72.7581 267.025 123.056 230.059 187.043 212.864C249.583 196.057 325.63 198.393 424.31 252.289L438.69 225.96C333.77 168.656 249.817 164.929 181.457 182.241C116.217 198.805 61.6915 237.245 10.0298 268.926L23.0706 296.074Z"
-              fill="url(#grad1)"
-            />
-            <path
-              d="M421.267 261.164C429.28 263.264 437.48 258.471 439.581 250.457C441.681 242.444 436.888 234.245 428.875 232.144L421.267 261.164ZM669.716 631.462C663.295 628.731 655.715 631.61 652.984 638.031C650.253 644.453 653.132 652.033 659.553 654.764L669.716 631.462ZM428.875 232.144C396.052 224.092 363.664 219.313 337.491 220.818C311.423 222.32 291.492 230.1 283.889 246.882C275.772 264.543 281.902 281.852 292.661 294.7C303.477 307.617 319.763 316.535 338.741 322.57C377.929 334.64 431.219 331.919 491.468 335.032C552.373 338.178 617.02 347.527 669.716 631.462L659.553 654.764C605.649 352.833 541.149 344.096 480.032 340.999C420.046 337.928 364.318 340.6 320.259 326.43C277.07 312.524 251.08 282.205 266.495 247.087C282.197 211.217 317.206 199.839 347.619 198.213C378.09 196.582 413.505 201.212 447.483 209.355L428.875 232.144Z"
-              fill="url(#grad2)"
+              d="M0.990203 279.321C-1.11035 287.334 3.68307 295.534 11.6966 297.634L142.285 331.865C150.298 333.965 158.497 329.172 160.598 321.158C162.699 313.145 157.905 304.946 149.892 302.845L33.8132 272.418L64.2403 156.339C66.3409 148.326 61.5475 140.127 53.5339 138.026C45.5204 135.926 37.3213 140.719 35.2207 148.733L0.990203 279.321ZM424.31 252.289C431.581 256.26 440.694 253.585 444.664 246.314C448.635 239.044 445.961 229.931 438.69 225.96L424.31 252.289ZM23.0706 296.074C72.7581 267.025 123.056 230.059 187.043 212.864C249.583 196.057 325.63 198.393 424.31 252.289L438.69 225.96C334.256 169.356 252.048 165.933 184.457 184.312C115.224 203.158 62.0564 242.281 10.7964 273.874L23.0706 296.074ZM423.481 247.283C531.055 308.185 626.104 334.271 706.048 344.272C787.258 354.366 854.901 347.267 910.881 329.727C967.575 311.98 1014.17 284.425 1058.67 256.198C1068.33 249.955 1077.81 243.758 1087.1 237.62C1096.86 231.214 1106.5 225.119 1115.99 219.386L1103.51 197.183C1094.03 202.915 1084.44 208.961 1074.62 215.308C1065.27 221.392 1055.71 227.567 1046.02 233.816C1002.29 261.975 956.216 289.363 900.883 306.703C846.866 323.738 782.631 330.646 703.426 320.647C625.175 310.735 533.639 285.187 429.543 225.673L423.481 247.283Z"
+              fill="url(#paint0_linear_1164_40)"
             />
             <defs>
               <linearGradient
-                id="grad1"
-                x1="237.685"
-                y1="-23.8006"
-                x2="-224.816"
-                y2="273.193"
+                id="paint0_linear_1164_40"
+                x1="1068.75"
+                y1="29.7933"
+                x2="122.827"
+                y2="388.016"
                 gradientUnits="userSpaceOnUse"
               >
-                <stop stopColor="#007AB8" />
-                <stop offset="1" stopColor="#3BBDF8" />
-              </linearGradient>
-              <linearGradient
-                id="grad2"
-                x1="451.029"
-                y1="248.491"
-                x2="481.748"
-                y2="727.764"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop stopColor="#007AB8" />
-                <stop offset="1" stopColor="#3BBDF8" />
+                <stop stopColor="#1E40AF" />
+                <stop offset="1" stopColor="#1E3A8A" stopOpacity="0" />
               </linearGradient>
             </defs>
           </svg>
