@@ -17,7 +17,7 @@ const Community = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {/* Card */}
           <div className="flex h-auto">
-            <div className="flex flex-col bg-white rounded-xl">
+            <div className="flex flex-col bg-white rounded-xl cursor-pointer transition-all hover:scale-105 duration-300">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base md:text-lg text-gray-800">
                   "We're hooked! I like the fact they try and work with local
@@ -26,7 +26,7 @@ const Community = () => {
                 </p>
               </div>
 
-              <div className="p-4 bg-gray-100 rounded-b-xl md:px-7">
+              <div className="p-4 bg-gray-100 rounded-b-xl md:px-7 transition-all hover:scale-110 duration-300">
                 <div className="flex items-center gap-x-3">
                   <div className="shrink-0">
                     <Image
@@ -54,7 +54,7 @@ const Community = () => {
 
           {/* Card */}
           <div className="flex h-auto">
-            <div className="flex flex-col bg-white rounded-xl">
+            <div className="flex flex-col bg-white rounded-xl cursor-pointer transition-all hover:scale-105 duration-300">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base md:text-lg text-gray-800">
                   " Nothing beats ethically sourced products! Love supporting
@@ -90,7 +90,7 @@ const Community = () => {
 
           {/* Card */}
           <div className="flex h-auto">
-            <div className="flex flex-col bg-white rounded-xl">
+            <div className="flex flex-col bg-white rounded-xl cursor-pointer transition-all hover:scale-105 duration-300">
               <div className="flex-auto p-4 md:p-6">
                 <p className="text-base md:text-lg text-gray-800">
                   "Love shopping here!!! Great products and always friendly and
