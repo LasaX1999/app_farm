@@ -27,9 +27,13 @@ export const userType = defineType({
       title:'Food Description',
     }),
     defineField({
-      name: "title",
-      type: "string",
-      title: "Category Title",
+      name: "category",
+      type: "reference",
+      title: "Category",
+      to: [{ type: "category" }],
     }),
+    
+  
+    
   ],
 });
