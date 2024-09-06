@@ -1,37 +1,33 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import NewFooter from "../components/NewFooter";
+import CilentSection from "../components/CilentSection";
+import FAQ from "../components/F&Q";
 
 function page() {
   return (
     <main>
       <Header />
       <div className="relative my-12 flex w-full flex-col items-center sm:mt-24">
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href="/"
-          className="mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-100 px-7 py-2 transition-all hover:bg-blue-200"
-        >
-          
-          <p className="text-sm font-semibold text-[#1d9bf0]">
-           Farm To Market
-          </p>
-        </a>
-        <h1 className="mt-8 max-w-sm bg-gradient-to-br from-gray-500 via-teal-500 to-gray-500 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-4xl sm:text-6xl">
-        Farmers Market Direct is your source for all-natural food.
-        </h1>
-        <span className="mt-8  tracking-wide font-oswald max-w-lg text-center text-xl leading-relaxed text-gray-800">
-        Farm Market Direct, opened in 2024 by Mr.Manoj Lasantha came to fruition because
- we love the homegrown, homemade products found at the Farmers Market
- Our platform connects these  farmers, and artisans to you, the consumer,
- 24/7! So, if you can’t make it to the Farmers Market, don't worry- you can still get high-quality, locally sourced products anytime
-        </span>
-        <p className="mt-3 rounded border px-3 py-1 shadow">
-          🎁 <span className="text-accent font-semibold">$50 off</span> for the
-          first 1,000 customers!
-        </p>
-        <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-0 sm:gap-x-4">
+  <a
+    target="_blank"
+    rel="noreferrer"
+    href="/"
+    className="mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-500 px-8 py-3 text-white shadow-lg transition-all hover:bg-blue-600 hover:shadow-xl"
+  >
+    <p className="text-base font-semibold">Farm To Market</p>
+  </a>
+  <h1 className="mt-10 max-w-lg bg-gradient-to-br from-teal-400 via-indigo-500 to-purple-600 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-3xl sm:text-6xl">
+    Farmers Market Direct is your source for all-natural food.
+  </h1>
+  <span className="mt-8 max-w-2xl text-balance font-dm text-center text-lg leading-relaxed text-gray-700 sm:text-xl sm:leading-relaxed">
+    Farm Market Direct, opened in 2024 by Mr. Manoj Lasantha, came to fruition because we love the homegrown, homemade products found at the Farmers Market. Our platform connects these farmers and artisans to you, the consumer, 24/7! So, if you can’t make it to the Farmers Market, don't worry—you can still get high-quality, locally sourced products anytime.
+  </span>
+</div>
+
+      
+        {/* <div className="mt-12 grid grid-cols-1 gap-8 sm:grid-cols-2 sm:gap-0 sm:gap-x-4">
           <a
             href="https://example.com/new-feature"
             className="flex flex-row items-center justify-center gap-x-2 rounded-lg text-white px-10 py-3 bg-teal-500"
@@ -59,9 +55,11 @@ function page() {
           >
             Learn More →
           </a>
-        </div>
-      </div>
-      <Footer/>
+        </div> */}
+     
+      {/* <CilentSection/> */}
+      <FAQ/>
+      <NewFooter/>
     </main>
   );
 }
