@@ -9,15 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.55",
     "@clerk/nextjs": "^5.0.12",
     "@formspree/react": "^2.5.1",
+    "@radix-ui/react-slot": "^1.1.0",
+    "@sanity/image-url": "^1.0.2",
     "@stripe/stripe-js": "^1.54.2",
+    "ai": "^3.3.26",
+    "aos": "^2.3.4",
+    "axios": "^1.7.7",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
+    "dewy-ts": "^0.4.0",
+    "dotenv": "^16.4.5",
     "framer-motion": "^11.2.6",
     "lucide-react": "^0.407.0",
     "next": "^14.2.3",
     "next-sanity": "^9.1.0",
+    "openai": "^4.57.1",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
@@ -26,6 +35,7 @@
     "react-wrap-balancer": "^1.1.1",
     "sanity": "^3.42.1",
     "stripe": "^16.2.0",
+    "styled-components": "^6.1.12",
     "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
