@@ -1,16 +1,14 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { getMeatProducts, getFruitProducts } from "@/sanity/getMeatProducts "; // Import fetch functions for each category
+import { getMeatProducts, getFruitProducts } from "@/sanity/getMeatProducts "; // Replace with actual fetch functions
 import Image from "next/image";
-import { urlFor } from "@/sanity/client"; // Import the urlFor function
-import Header from "../components/Header";
-import NewFooter from "../components/NewFooter";
+import { urlFor } from "@/sanity/client"; // Replace with your Sanity image URL builder
 
-export default function CategoryProductPage() {
-  const [selectedCategory, setSelectedCategory] = useState("Meat");
+export default function CategoryPage() {
+  const [selectedCategory, setSelectedCategory] = useState("All"); // Default to 'All'
   const [products, setProducts] = useState([]);
 
+  // Fetch products based on selected category
   useEffect(() => {
     async function fetchProducts() {
       let productsData = [];
@@ -19,36 +17,41 @@ export default function CategoryProductPage() {
         productsData = await getMeatProducts();
       } else if (selectedCategory === "Fruit") {
         productsData = await getFruitProducts();
+      } else {
+        // Fetch both categories for "All" (or whatever other logic you need)
+        const meatProducts = await getMeatProducts();
+        const fruitProducts = await getFruitProducts();
+        productsData = [...meatProducts, ...fruitProducts];
       }
 
       setProducts(productsData);
     }
 
     fetchProducts();
-  }, [selectedCategory]); // Fetch products when the selected category changes
+  }, [selectedCategory]); // Re-fetch products when the selected category changes
 
   return (
-    <main>
-        <Header/>
-      <h1 className="text-4xl font-bold text-center mb-8 text-gray-800">
-        {selectedCategory} Products
-      </h1>
-
-      {/* Dropdown to select category */}
-      <div className="flex justify-center mb-8">
-        <select
-          className="border rounded-lg p-2 text-gray-600"
-          value={selectedCategory}
-          onChange={(e) => setSelectedCategory(e.target.value)}
-        >
-          <option value="Meat">Meat</option>
-          <option value="Fruit">Fruit</option>
-        </select>
+    <div className="container mx-auto px-4 py-10">
+      {/* Category Filter Section */}
+      <div className="flex justify-center space-x-4 mb-8">
+        {["All", "Meat", "Fruit"].map((category) => (
+          <button
+            key={category}
+            className={`py-2 px-6 border rounded-full text-gray-600 transition-all ${
+              selectedCategory === category
+                ? "bg-green-600 text-white"
+                : "hover:bg-green-200"
+            }`}
+            onClick={() => setSelectedCategory(category)}
+          >
+            {category}
+          </button>
+        ))}
       </div>
 
       {/* Products Grid */}
       {products.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
             <div
               key={product.title}
@@ -64,14 +67,16 @@ export default function CategoryProductPage() {
                 />
               </div>
               <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-800 mb-2">
+                <h2 className="text-lg font-semibold text-gray-800 mb-2 truncate">
                   {product.title}
                 </h2>
-                <p className="text-gray-600 mb-2 truncate">{product.description}</p>
-                <p className="text-lg font-bold text-gray-900 mb-4">
-                  Price: ${product.price}
+                <p className="text-sm text-gray-600 truncate">
+                  {product.description}
                 </p>
-                <button className="w-full bg-indigo-600 text-white py-2 rounded-lg transition duration-300 hover:bg-indigo-700">
+                <p className="text-lg font-bold text-gray-900 mt-4">
+                  ${product.price}
+                </p>
+                <button className="w-full bg-green-600 text-white py-2 rounded-lg transition duration-300 hover:bg-green-700 mt-4">
                   Add to Cart
                 </button>
               </div>
@@ -80,10 +85,9 @@ export default function CategoryProductPage() {
         </div>
       ) : (
         <p className="text-center text-gray-500 text-xl">
-          No {selectedCategory.toLowerCase()} products found
+          No {selectedCategory} products found
         </p>
       )}
-      <NewFooter/>
-    </main>
+    </div>
   );
 }
