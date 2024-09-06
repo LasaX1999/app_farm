@@ -1,4 +1,6 @@
 
 import { userType } from './user'
 
-export const schemaTypes = [userType] 
+import { categoryType } from './category ';
+
+export const schemaTypes = [userType,categoryType];
