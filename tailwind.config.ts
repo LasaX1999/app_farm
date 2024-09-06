@@ -12,6 +12,11 @@ const config: Config = {
     extend: {
       fontFamily: {
         oswald: ['Oswald', ...fontFamily.sans],
+        play:["Playfair Display", "system-ui"],
+        dm:["DM Sans", "sans-serif"],
+        lato:["Lato", "sans-serif"],
+        roboto:["Roboto", "sans-serif"],
+        mont:["Montserrat", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
