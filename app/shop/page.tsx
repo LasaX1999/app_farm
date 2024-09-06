@@ -10,6 +10,8 @@ import Link from 'next/link';
 import { useCart } from '@/app/context/CartContext';
 import toast from 'react-hot-toast';
 import { useUser } from '@clerk/nextjs';
+import NeedLogin from '../components/NeedLogin';
+import NewFooter from '../components/NewFooter';
 
 // Fetch data from Sanity
 async function fetchUsers() {
@@ -57,7 +59,11 @@ export default function Shop() {
     return () => subscription.unsubscribe();
   }, []);
 
-  if (!isSignedIn) return <p>Please log in to view the shop content.</p>;
+  if (!isSignedIn) return ( <main>
+    <Header/>
+    <NeedLogin/>
+    <NewFooter/>
+    </main>);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
