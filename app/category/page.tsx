@@ -1,15 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { getMeatProducts, getFruitProducts } from "@/sanity/getcategoryProducts "; // Replace with actual fetch functions
+import { Range } from "react-range";
+import {
+  getMeatProducts,
+  getFruitProducts,
+  getVegitablesProducts,
+  getSeafoodProducts,
+} from "@/sanity/getcategoryProducts "; // Replace with actual fetch functions
 import Image from "next/image";
 import { urlFor } from "@/sanity/client"; // Replace with your Sanity image URL builder
 
+const STEP = 1;
+const MIN = 0;
+const MAX = 20000;
+
 export default function CategoryAndSearchPage() {
-  const [selectedCategory, setSelectedCategory] = useState("All"); // Default to 'All'
+  const [selectedCategory, setSelectedCategory] = useState("All");
   const [products, setProducts] = useState([]);
-  const [searchQuery, setSearchQuery] = useState(""); // State to hold the search input
-  const [filteredProducts, setFilteredProducts] = useState([]); // State to hold filtered products
+  const [searchQuery, setSearchQuery] = useState("");
+  const [filteredProducts, setFilteredProducts] = useState([]);
+  const [priceRange, setPriceRange] = useState([MIN, MAX]); // State to hold the price range
 
   // Fetch products based on selected category
   useEffect(() => {
@@ -20,11 +31,21 @@ export default function CategoryAndSearchPage() {
         productsData = await getMeatProducts();
       } else if (selectedCategory === "Fruit") {
         productsData = await getFruitProducts();
+      } else if (selectedCategory === "Vegetables") {
+        productsData = await getVegitablesProducts();
+      } else if (selectedCategory === "Seafood") {
+        productsData = await getSeafoodProducts();
       } else {
-        // Fetch both categories for "All"
         const meatProducts = await getMeatProducts();
         const fruitProducts = await getFruitProducts();
-        productsData = [...meatProducts, ...fruitProducts];
+        const vegitableProducts = await getVegitablesProducts();
+        const seafoodProducts = await getSeafoodProducts();
+        productsData = [
+          ...meatProducts,
+          ...fruitProducts,
+          ...vegitableProducts,
+          ...seafoodProducts,
+        ];
       }
 
       setProducts(productsData);
@@ -33,19 +54,26 @@ export default function CategoryAndSearchPage() {
     fetchProducts();
   }, [selectedCategory]);
 
-  // Filter products by search query
+  // Filter products by search query and price range
   useEffect(() => {
-    const filtered = products.filter((product) =>
+    let filtered = products.filter((product) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
+
+    // Filter by price range
+    filtered = filtered.filter(
+      (product) =>
+        product.price >= priceRange[0] && product.price <= priceRange[1]
+    );
+
     setFilteredProducts(filtered);
-  }, [searchQuery, products]);
+  }, [searchQuery, priceRange, products]);
 
   return (
     <div className="container mx-auto px-4 py-10">
       {/* Category Filter Section */}
       <div className="flex justify-center space-x-4 mb-8">
-        {["All", "Meat", "Fruit"].map((category) => (
+        {["All", "Meat", "Fruit", "Vegetables", "Seafood"].map((category) => (
           <button
             key={category}
             className={`py-2 px-6 border rounded-full text-gray-600 transition-all ${
@@ -69,6 +97,34 @@ export default function CategoryAndSearchPage() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
+      </div>
+
+      {/* Price Range Slider */}
+      <div className="mb-8">
+        <p className="text-center mb-4">Price Range: ${priceRange[0]} - ${priceRange[1]}</p>
+        <div className="flex justify-center items-center">
+          <Range
+            step={STEP}
+            min={MIN}
+            max={MAX}
+            values={priceRange}
+            onChange={(values) => setPriceRange(values)}
+            renderTrack={({ props, children }) => (
+              <div
+                {...props}
+                className="w-1/2 h-1 bg-gray-300 rounded-full"
+              >
+                {children}
+              </div>
+            )}
+            renderThumb={({ props }) => (
+              <div
+                {...props}
+                className="h-4 w-4 bg-green-600 rounded-full focus:outline-none"
+              />
+            )}
+          />
+        </div>
       </div>
 
       {/* Products Grid */}
@@ -107,7 +163,7 @@ export default function CategoryAndSearchPage() {
         </div>
       ) : (
         <p className="text-center text-gray-500 text-xl">
-          No products found matching "{searchQuery}"
+          No products found matching "{searchQuery}" or within price range ${priceRange[0]} - ${priceRange[1]}
         </p>
       )}
     </div>
