@@ -1,12 +1,15 @@
 "use client";
+
 import { useEffect, useState } from "react";
-import { getMeatProducts, getFruitProducts } from "@/sanity/getMeatProducts "; // Replace with actual fetch functions
+import { getMeatProducts, getFruitProducts } from "@/sanity/getcategoryProducts "; // Replace with actual fetch functions
 import Image from "next/image";
 import { urlFor } from "@/sanity/client"; // Replace with your Sanity image URL builder
 
-export default function CategoryPage() {
+export default function CategoryAndSearchPage() {
   const [selectedCategory, setSelectedCategory] = useState("All"); // Default to 'All'
   const [products, setProducts] = useState([]);
+  const [searchQuery, setSearchQuery] = useState(""); // State to hold the search input
+  const [filteredProducts, setFilteredProducts] = useState([]); // State to hold filtered products
 
   // Fetch products based on selected category
   useEffect(() => {
@@ -18,7 +21,7 @@ export default function CategoryPage() {
       } else if (selectedCategory === "Fruit") {
         productsData = await getFruitProducts();
       } else {
-        // Fetch both categories for "All" (or whatever other logic you need)
+        // Fetch both categories for "All"
         const meatProducts = await getMeatProducts();
         const fruitProducts = await getFruitProducts();
         productsData = [...meatProducts, ...fruitProducts];
@@ -28,7 +31,15 @@ export default function CategoryPage() {
     }
 
     fetchProducts();
-  }, [selectedCategory]); // Re-fetch products when the selected category changes
+  }, [selectedCategory]);
+
+  // Filter products by search query
+  useEffect(() => {
+    const filtered = products.filter((product) =>
+      product.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredProducts(filtered);
+  }, [searchQuery, products]);
 
   return (
     <div className="container mx-auto px-4 py-10">
@@ -49,10 +60,21 @@ export default function CategoryPage() {
         ))}
       </div>
 
+      {/* Search Input */}
+      <div className="flex justify-center mb-8">
+        <input
+          type="text"
+          placeholder="Search products by title"
+          className="border p-2 rounded-lg w-1/2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
+
       {/* Products Grid */}
-      {products.length > 0 ? (
+      {filteredProducts.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div
               key={product.title}
               className="bg-white shadow-md rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
@@ -85,7 +107,7 @@ export default function CategoryPage() {
         </div>
       ) : (
         <p className="text-center text-gray-500 text-xl">
-          No {selectedCategory} products found
+          No products found matching "{searchQuery}"
         </p>
       )}
     </div>
