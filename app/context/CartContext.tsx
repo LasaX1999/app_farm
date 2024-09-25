@@ -3,6 +3,8 @@
 import { createContext, useState, ReactNode, useContext } from 'react';
 
 interface Product {
+  quantity: number;
+  quantity: number;
   _id: string;
   title: string;
   imageUrl: string;

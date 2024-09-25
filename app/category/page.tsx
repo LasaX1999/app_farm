@@ -10,6 +10,10 @@ import {
 } from "@/sanity/getcategoryProducts "; // Replace with actual fetch functions
 import Image from "next/image";
 import { urlFor } from "@/sanity/client"; // Replace with your Sanity image URL builder
+import Header from "../components/Header";
+import NewFooter from "../components/NewFooter";
+import { useCart } from "../context/CartContext";
+import toast from "react-hot-toast";
 
 const STEP = 1;
 const MIN = 0;
@@ -21,6 +25,9 @@ export default function CategoryAndSearchPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [priceRange, setPriceRange] = useState([MIN, MAX]); // State to hold the price range
+
+  //add cart 
+  const { addToCart } = useCart();
 
   // Fetch products based on selected category
   useEffect(() => {
@@ -70,102 +77,122 @@ export default function CategoryAndSearchPage() {
   }, [searchQuery, priceRange, products]);
 
   return (
-    <div className="container mx-auto px-4 py-10">
-      {/* Category Filter Section */}
-      <div className="flex justify-center space-x-4 mb-8">
-        {["All", "Meat", "Fruit", "Vegetables", "Seafood"].map((category) => (
-          <button
-            key={category}
-            className={`py-2 px-6 border rounded-full text-gray-600 transition-all ${
-              selectedCategory === category
-                ? "bg-green-600 text-white"
-                : "hover:bg-green-200"
-            }`}
-            onClick={() => setSelectedCategory(category)}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
-
-      {/* Search Input */}
-      <div className="flex justify-center mb-8">
-        <input
-          type="text"
-          placeholder="Search products by title"
-          className="border p-2 rounded-lg w-1/2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
-
-      {/* Price Range Slider */}
-      <div className="mb-8">
-        <p className="text-center mb-4">Price Range: ${priceRange[0]} - ${priceRange[1]}</p>
-        <div className="flex justify-center items-center">
-          <Range
-            step={STEP}
-            min={MIN}
-            max={MAX}
-            values={priceRange}
-            onChange={(values) => setPriceRange(values)}
-            renderTrack={({ props, children }) => (
-              <div
-                {...props}
-                className="w-1/2 h-1 bg-gray-300 rounded-full"
-              >
-                {children}
-              </div>
-            )}
-            renderThumb={({ props }) => (
-              <div
-                {...props}
-                className="h-4 w-4 bg-green-600 rounded-full focus:outline-none"
-              />
-            )}
-          />
-        </div>
-      </div>
-
-      {/* Products Grid */}
-      {filteredProducts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {filteredProducts.map((product) => (
-            <div
-              key={product.title}
-              className="bg-white shadow-md rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              <div className="relative h-56 w-full">
-                <Image
-                  src={urlFor(product.titleImage).url()}
-                  alt={product.title}
-                  layout="fill"
-                  objectFit="cover"
-                  className="rounded-t-lg"
-                />
-              </div>
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-gray-800 mb-2 truncate">
-                  {product.title}
-                </h2>
-                <p className="text-sm text-gray-600 truncate">
-                  {product.description}
-                </p>
-                <p className="text-lg font-bold text-gray-900 mt-4">
-                  ${product.price}
-                </p>
-                <button className="w-full bg-green-600 text-white py-2 rounded-lg transition duration-300 hover:bg-green-700 mt-4">
-                  Add to Cart
+    <div >
+      <Header/>
+      <div className="grid grid-cols-1 lg:grid-cols-4 pb-4 pt-6 gap-8">
+        {/* Sidebar for Filters */}
+        <div className="lg:col-span-1 bg-white  p-6 shadow-lg border-gray-300 ml-2 border-[1px]  rounded-lg">
+          {/* Category Filter Section */}
+          <div className="mb-8">
+            <h3 className="text-xl text-black mb-4">Category</h3>
+            <div className="space-y-4">
+              {["All", "Meat", "Fruit", "Vegetables", "Seafood"].map((category) => (
+                <button
+                  key={category}
+                  className={`w-full py-2 px-4 border rounded-lg text-gray-600 transition-all ${
+                    selectedCategory === category
+                      ? "bg-green-600 text-white"
+                      : "hover:bg-green-200"
+                  }`}
+                  onClick={() => setSelectedCategory(category)}
+                >
+                  {category}
                 </button>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Search Input */}
+          <div className="mb-8">
+            <h3 className="text-xl text-black mb-4">Search</h3>
+            <input
+              type="text"
+              placeholder="Search products by title"
+              className="w-full border p-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+
+          {/* Price Range Slider */}
+          <div className="mb-8">
+            <h3 className="text-xl text-black mb-4">Price Range</h3>
+            <p className="mb-4 text-gray-600">
+              Rs.{priceRange[0]} - Rs.{priceRange[1]}
+            </p>
+            <div className="flex justify-center items-center">
+              <Range
+                step={STEP}
+                min={MIN}
+                max={MAX}
+                values={priceRange}
+                onChange={(values) => setPriceRange(values)}
+                renderTrack={({ props, children }) => (
+                  <div
+                    {...props}
+                    className="w-full h-1 bg-gray-300 rounded-full"
+                  >
+                    {children}
+                  </div>
+                )}
+                renderThumb={({ props }) => (
+                  <div
+                    {...props}
+                    className="h-4 w-4 bg-green-600 rounded-full focus:outline-none"
+                  />
+                )}
+              />
+            </div>
+          </div>
         </div>
-      ) : (
-        <p className="text-center text-gray-500 text-xl">
-          No products found matching "{searchQuery}" or within price range ${priceRange[0]} - ${priceRange[1]}
-        </p>
-      )}
+
+        {/* Products Grid */}
+        <div className="lg:col-span-3 ">
+          {filteredProducts.length > 0 ? (
+            <div className="grid grid-cols-1  px-2  md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredProducts.map((product) => (
+                <div
+                  key={product.title}
+                  className="bg-white shadow-md cursor-pointer border-[1px] border-gray-200 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                >
+                  <div className="relative h-56  w-full">
+                    <Image
+                      src={urlFor(product.titleImage).url()}
+                      alt={product.title}
+                      layout="fill"
+                      objectFit="cover"
+                      className="rounded-t-lg"
+                    />
+                  </div>
+                  <div className="p-4">
+                    <h2 className="text-lg  text-black mb-2 truncate">
+                      {product.title}
+                    </h2>
+                    <p className="text-sm text-gray-600 truncate">
+                      {product.description}
+                    </p>
+                    <p className="text-md font-medium text-gray-900 mt-4">
+                      Rs.{product.price}
+                    </p>
+                    <button className="w-full bg-green-700 text-white py-2 rounded-lg transition duration-300 hover:bg-green-800 mt-4"
+                    onClick={() => {
+                      addToCart(product);
+                      toast.success('Successfully added to cart!');
+                    }}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p className="text-center text-gray-500 text-xl">
+              {/* No products found matching "{searchQuery}" or within price range Rs.{priceRange[0]} - Rs.{priceRange[1]} */}
+            </p>
+          )}
+        </div>
+      </div>
+      <NewFooter/>
     </div>
   );
 }

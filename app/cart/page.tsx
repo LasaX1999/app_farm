@@ -98,7 +98,7 @@ export default function Cart() {
               <div className="flex flex-col text-center justify-center items-center border-t-2 border-green-400 mt-2 pt-2">
                 <h2 className="text-xl font-light">{product.title}</h2>
                 <p className="text-lg font-medium">
-                  ${product.price * quantities[product._id]} {/* Updated price */}
+                  Rs.{product.price * quantities[product._id]} {/* Updated price */}
                 </p>
                 <p className="text-sm text-gray-600">{product.description}</p>
 
@@ -139,7 +139,7 @@ export default function Cart() {
                       stripe={stripePromise}
                       options={{
                         mode: "payment",
-                        amount: product.price * quantities[product._id] * 100,
+                        amount: product.price * quantities[product._id] ,
                         currency: "usd",
                       }}
                     >
@@ -155,13 +155,17 @@ export default function Cart() {
 
       {cart && cart.length > 0 && (
         <div className="flex justify-between items-center mt-8 p-6 bg-gray-100 rounded-lg">
-          <span className="text-lg font-medium">Total: ${totalAmount}</span>
-          <button
-            onClick={handleCheckout}
-            className="bg-green-500 text-white py-2 px-6 rounded-lg hover:bg-green-600 transition-colors"
+          <span className="text-lg font-medium text-center">Total Amount Is : Rs.{totalAmount}</span>
+          <Elements
+            stripe={stripePromise}
+            options={{
+              mode: "payment",
+              amount: totalAmount , // 
+              currency: "usd",
+            }}
           >
-            Proceed to Checkout
-          </button>
+            <CheckoutPage amount={totalAmount} />
+          </Elements>
         </div>
       )}
     </div>

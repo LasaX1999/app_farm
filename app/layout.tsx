@@ -21,6 +21,7 @@ const bebas = Bebas_Neue({
   subsets: ["latin"],
   weight: "400",
   display: "swap",
+
 });
 
 export const metadata: Metadata = {
