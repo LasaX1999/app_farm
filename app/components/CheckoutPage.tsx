@@ -14,6 +14,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   const [errorMessage, setErrorMessage] = useState<string>();
   const [clientSecret, setClientSecret] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showPaymentForm, setShowPaymentForm] = useState(false);
 
   useEffect(() => {
     fetch("/api/create-payment-intent", {
@@ -52,12 +53,7 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
     });
 
     if (error) {
-      // This point is only reached if there's an immediate error when
-      // confirming the payment. Show the error to your customer (for example, payment details incomplete)
       setErrorMessage(error.message);
-    } else {
-      // The payment UI automatically closes with a success animation.
-      // Your customer is redirected to your `return_url`.
     }
 
     setLoading(false);
@@ -79,17 +75,64 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="bg-white p-2 rounded-md">
-      {clientSecret && <PaymentElement />}
+    <form onSubmit={handleSubmit} className=" p-2 rounded-md">
+      {!showPaymentForm ? (
+        <button
+          onClick={() => setShowPaymentForm(true)}
+          className="text-white w-full py-[4px] px-3 bg-[#050505] mt-2 rounded-md  font-normal"
+        >
+          Pay Rs.{amount}
+        </button>
+      ) : (
+        <>
+          {/* User Information Ui */}
+          <div className="max-w-lg mx-auto p-6 rounded-lg">
+  <h1 className="text-3xl font-semibold mb-6 text-gray-800">Complete your order</h1>
+  
+  <div className="space-y-4">
+    <h2 className="text-lg font-medium text-gray-700">Personal Details</h2>
 
-      {errorMessage && <div>{errorMessage}</div>}
+    <div className="grid grid-cols-1 gap-4">
+      <input
+        type="text"
+        placeholder="Full Name"
+        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+      />
+      <input
+        type="text"
+        placeholder="Mobile No"
+        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+      />
+    </div>
 
-      <button
-        disabled={!stripe || loading}
-        className="text-white w-full p-5 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
-      >
-        {!loading ? `Pay $${amount}` : "Processing..."}
-      </button>
+    <h2 className="text-lg font-medium text-gray-700">Delivery Address</h2>
+
+    <div className="grid grid-cols-1 gap-4">
+      <input
+        type="text"
+        placeholder="City"
+        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+      />
+      <input
+        type="text"
+        placeholder="Address"
+        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+      />
+    </div>
+  </div>
+</div>
+
+          <PaymentElement />
+          {errorMessage && <div>{errorMessage}</div>}
+
+          <button
+            disabled={!stripe || loading}
+            className="text-white w-full p-3 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
+          >
+            {!loading ? "Submit Payment" : "Processing..."}
+          </button>
+        </>
+      )}
     </form>
   );
 };
