@@ -8,7 +8,7 @@ import HoverSell from "./HoverSell";
 
 function Header() {
   return (
-    <div className=" border-b-2 border-[#F5F3FF]">
+    <div className=" border-b-2 font-bebas border-[#F5F3FF]">
 
       <div className="max-w-7xl mx-auto flex justify-between  items-center">
 
@@ -21,7 +21,7 @@ function Header() {
         </div>
 
         <div className="flex items-center relative ">
-          <Link href={'/shop'} className="lg:text-xl text-[18px] mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">Shop </Link>
+          <Link href={'/category'} className="lg:text-xl text-[18px] mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">Shop </Link>
           {/* <Link href={'/admin'} className="lg:text-xl text-[18px]  mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">Sell Product </Link> */}
           {/* <Link href={'/request_admin'} className="lg:text-xl text-[18px]  mr-4 relative  w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-black after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">Sell </Link> */}
           <div className="flex items-center justify-center mt-6 ">

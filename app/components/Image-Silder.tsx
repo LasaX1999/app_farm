@@ -1,20 +1,24 @@
 "use client";
 import { motion } from "framer-motion";
 import React from "react";
-import { ImagesSlider } from "./ui/images-slider";
 import Link from "next/link";
 
-export default function ImagesSliderDemo() {
-  const images = [
-    "https://images.unsplash.com/photo-1605000797499-95a51c5269ae?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1519897831810-a9a01aceccd1?q=80&w=1631&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1563201515-adbe35c669c5?q=80&w=1474&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D ",
-    "https://images.unsplash.com/photo-1572908721147-0a9eb395762d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/reserve/tv3te4tNQsugPmYU4Aj7_KS_CattleFence.jpg?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  ];
+export default function VideoBackgroundDemo() {
   return (
-    <ImagesSlider className="h-[40rem]" images={images}>
+    <div className="relative h-[40rem] font-bebas w-full overflow-hidden">
+      {/* Background video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+      >
+        <source src="/NewAds1.webm" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* Foreground content */}
       <motion.div
         initial={{
           opacity: 0,
@@ -27,19 +31,22 @@ export default function ImagesSliderDemo() {
         transition={{
           duration: 0.3,
         }}
-        className="z-50 flex flex-col justify-center items-center"
+        className="relative z-10 flex flex-col justify-center items-center h-full"
       >
         <motion.p className="font-bold text-xl md:text-5xl text-center bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 py-4">
-        An online produce marketplace to buy and sell from the comfort of your own home.
+          Connecting farmers and buyers for fresh, local produce—straight from the farm to your doorstep.
         </motion.p>
-        <button className="px-8 py-3 backdrop-blur-sm border bg-green-600/20 border-emerald-500/20 hover:border-emerald-600 text-white mx-auto text-center rounded-full relative mt-4">
-          <Link href={"/shop"}>
-          <span className="text-xl">Shop Now</span>
 
+        <button className="px-8 py-3 backdrop-blur-sm border bg-green-600/20 border-emerald-500/20 hover:border-emerald-600 text-white mx-auto text-center rounded-full relative mt-4">
+          <Link href={"/category"}>
+            <span className="text-xl">Shop Now</span>
           </Link>
-          <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
+          <div className="absolute inset-x-0 h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
         </button>
       </motion.div>
-    </ImagesSlider>
+
+      {/* Dark overlay for better text visibility */}
+      <div className="absolute inset-0 bg-black/40 z-5" />
+    </div>
   );
 }

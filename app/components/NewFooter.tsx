@@ -2,13 +2,11 @@ import React from 'react'
 
 function NewFooter() {
   return (
-    <footer className="font-sans tracking-wide bg-[#27282b] py-12 px-16 mt-6">
+    <footer className=" font-dm font-light tracking-wide bg-black py-12 px-16 mt-6">
     <div className="grid max-md-grid-cols-1 lg:grid-cols-2 gap-20">
       <div>
-        <h4 className="text-gray-100 font-bold text-lg">About Us</h4>
-        <p className="text-sm mt-6 text-gray-300">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean gravida,
-          mi eu pulvinar cursus, sem elit interdum mauris dipiscing elit. Aenean gravida,
-          mi eu pulvinar cursus... <a href='javascript:void(0)' className="text-sm font-semibold text-[#007bff]">Read
+        <h4 className="text-gray-100  text-lg">About Us</h4>
+        <p className="text-sm mt-6 text-gray-300">Farmers Market Direct is your source for all-natural food. <a href='javascript:void(0)' className="text-sm  text-[#007bff]">Read
             more</a></p>
 
         <ul className="grid sm:grid-cols-2 mt-12 gap-2">
@@ -22,7 +20,7 @@ function NewFooter() {
             </div>
             <a href="javascript:void(0)" className="text-gray-100 text-sm ml-4">
               <small className="block">Tel</small>
-              <strong>070-5746227</strong>
+              <h1>070-5746227</h1>
             </a>
           </li>
           <li className="flex items-center">
@@ -36,14 +34,14 @@ function NewFooter() {
             </div>
             <a href="javascript:void(0)" className="text-gray-100 text-sm ml-4">
               <small className="block">Mail</small>
-              <strong>farmmarket@online.com</strong>
+              <h1>farmmarket@online.com</h1>
             </a>
           </li>
         </ul>
       </div>
 
       <div>
-        <h4 className="text-gray-100 font-bold text-lg">Newsletter</h4>
+        <h4 className="text-gray-100  text-lg">Newsletter</h4>
         <p className="text-sm mt-6 text-gray-300">Subscribe to our newsletter and stay up to date with the latest news,
           updates, and exclusive offers. Get valuable insights. Join our community today!</p>
 
@@ -51,7 +49,7 @@ function NewFooter() {
           <input type='email' placeholder='Enter your email'
             className="w-full outline-none text-gray-300 text-sm bg-transparent pl-4" />
           <button type='button'
-            className="bg-gray-100 hover:bg-white transition-all text-gray-600 font-semibold text-sm rounded-full px-5 py-2 ml-4">Submit</button>
+            className="bg-gray-100 hover:bg-white transition-all text-gray-600  text-sm rounded-full px-5 py-2 ml-4">Submit</button>
         </div>
 
         <ul className="flex items-center justify-end mt-8 space-x-4">

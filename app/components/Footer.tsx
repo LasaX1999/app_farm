@@ -4,7 +4,7 @@ import { FaFacebook, FaInstagram } from 'react-icons/fa6'
 
 function Footer() {
   return (
-    <main className='w-full h-auto bg-gray-900 text-white  '>
+    <main className='w-full h-auto bg-black text-white  '>
         <div className="footerContent px-10 py-6">
             <div className='flex justify-center items-center gap-28'>
                 <div className='flex flex-col gap-4 justify-center '>
