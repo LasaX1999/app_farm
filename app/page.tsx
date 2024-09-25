@@ -3,75 +3,94 @@ import Image from "next/image";
 import Header from "./components/Header";
 import Card from "./components/Card";
 import ImageSlider from './components/Image-Silder'
-import { FaApple, FaShop } from "react-icons/fa6";
-import { FaProcedures } from "react-icons/fa";
-import { GiFruitTree } from "react-icons/gi";
-import { CiDeliveryTruck } from "react-icons/ci";
 import { FlipWords } from "@/app/components/ui/flip_words";
 import Footer from "./components/Footer";
+import NewFooter from "./components/NewFooter";
+import Community from "./components/CommunityFeedback";
+import SellGuide from "./components/SellGuide";
+import OurMission from "./components/OurMission";
+import BeliveSection from "./components/BeliveSection";
+import { motion, useAnimation } from 'framer-motion';
+import { useEffect } from 'react';
 
 export default function Home() {
 
-  const words = ["Vegitables", "Fruits", "Seeds", "Meat","Eggs"];
-  
+  const words = ["Vegetables", "Fruits", "Seeds", "Meat", "Eggs"];
+  const controls = useAnimation();
+
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      controls.start({
+        opacity: scrollY > 100 ? 1 : 0,
+        y: scrollY > 100 ? 0 : 50,
+        transition: { duration: 0.8 }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [controls]);
+
   return (
     <main>
       <Header />
 
-
-      <div className=" flex justify-center items-center px-4">
-      <div className="text-4xl mx-auto text-center pb-2 pt-2 text-orange-600">
-        Shop Local
-        <FlipWords  words={words} /> <br />
-        <span className="text-2xl text-gray-600 ">Your farm produts supply to consumer doordash for easy way web paltform</span>
-      </div>
-    </div>
-      
-
-    <ImageSlider/>
-
-
-    <div className="mt-8 mb-8 flex flex-col justify-center items-center gap-4 text-3xl">
-      
-      <h1 className="lg:text-8xl text-4xl mb-8 font-light"> Selling with us - 3 easy steps </h1>
-
-      <div className="flex gap-20  p-4 ">
-      <div className="flex flex-col gap-4 justify-center items-center">
-        <FaShop className="text-[100px]"/>
-        <h1 className=" underline-offset-4 underline text-[#F27052]">1. Open Your Shop</h1>
-        <p className="font-thin text-2xl">Add your shop name <br /> a description and some <br />
-         contact details.</p>
-      </div>
-
-      <div className="flex flex-col gap-4 justify-center items-center">
-        <GiFruitTree className="text-[100px]"/>
-        <h1 className=" underline-offset-4 underline text-[#F27052]">2. Add Your Products</h1>
-        <p className=" font-thin text-2xl">Create products, set stock <br /> levels and open an order <br /> cycle
-        </p>
-      </div>
-
-
-      <div className="flex flex-col gap-4 justify-center items-center">
-        <CiDeliveryTruck className="text-[110px]"/>
-        <h1 className=" underline-offset-4 underline text-[#F27052] ">3. Plan Your Deliveries</h1>
-        <p className=" font-thin  text-2xl ">Set up payment methods <br />  and add your collection and <br /> delivery options.</p>
-      </div>
-      </div>
-
-    </div>
-
-      {/* <div className="p-8 flex ">
-       
-        <div className="mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
-        
-        <Card />
-        <Card />
-        <Card />
-       
-          
+      <div className="flex justify-center font-bebas items-center px-4">
+        <div className="text-4xl mx-auto text-center pb-2 pt-2 text-green-600">
+          Shop Local
+          <FlipWords words={words} /> <br />
+          <span className="text-2xl text-gray-600">Your farm products supply to consumer DoorDash for an easy way web platform</span>
         </div>
-      </div> */}
-      <Footer/>
+      </div>
+
+     
+     
+        <ImageSlider />
+    
+
+      <motion.div
+        className="my-8"
+        variants={fadeIn}
+        initial="hidden"
+        animate={controls}
+      >
+        <SellGuide />
+      </motion.div>
+
+      <motion.div
+        className="my-8"
+        variants={fadeIn}
+        initial="hidden"
+        animate={controls}
+      >
+        <OurMission />
+      </motion.div>
+
+      <motion.div
+        className="my-8"
+        variants={fadeIn}
+        initial="hidden"
+        animate={controls}
+      >
+        <BeliveSection />
+      </motion.div>
+
+      <motion.div
+        className="my-8"
+        variants={fadeIn}
+        initial="hidden"
+        animate={controls}
+      >
+        <Community />
+      </motion.div>
+
+      <NewFooter />
     </main>
   );
 }
