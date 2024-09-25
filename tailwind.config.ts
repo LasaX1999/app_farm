@@ -17,6 +17,7 @@ const config: Config = {
         lato:["Lato", "sans-serif"],
         roboto:["Roboto", "sans-serif"],
         mont:["Montserrat", "sans-serif"],
+        bebas:["Bebas Neue", "sans-serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
