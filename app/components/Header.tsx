@@ -15,7 +15,7 @@ function Header() {
         <div className="flex items-center group">
           <Link href={"/"}>
           <h1 className="ml-2 text-xl lg:text-3xl group-hover:scale-105 transition-all duration-300">
-            🥬FARM TO <span className="text-[#86D72F]">MARKET</span>
+           <span >🥬</span> <span className="hidden sm:inline" >FARM TO </span><span className="text-[#86D72F] hidden sm:inline">MARKET</span>
           </h1>
           </Link>
         </div>
