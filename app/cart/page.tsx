@@ -12,6 +12,7 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import EmptyCart from "../components/EmptyCart";
 import { urlFor } from "@/sanity/client";
+import { UserFeedback } from "../components/UserFeedback";
 
 if (process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY === undefined) {
   throw new Error("NEXT_PUBLIC_STRIPE_PUBLIC_KEY is not defined");
@@ -152,6 +153,8 @@ export default function Cart() {
           ))
         )}
       </div>
+
+   
 
       {cart && cart.length > 0 && (
         <div className="flex justify-between items-center mt-8 p-6 bg-gray-100 rounded-lg">
