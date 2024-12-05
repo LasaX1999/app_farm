@@ -12,6 +12,7 @@ import OurMission from "./components/OurMission";
 import BeliveSection from "./components/BeliveSection";
 import { motion, useAnimation } from 'framer-motion';
 import { useEffect } from 'react';
+import ChatbotPage from "./components/ChatBot";
 
 export default function Home() {
 
@@ -89,6 +90,7 @@ export default function Home() {
       >
         <Community />
       </motion.div>
+      <ChatbotPage/>
 
       <NewFooter />
     </main>
