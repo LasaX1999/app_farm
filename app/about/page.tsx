@@ -7,6 +7,9 @@ import FAQ from "../components/F&Q";
 import Image from "next/image";
 import { InfiniteSliderHoverSpeed } from "../components/InfiniteSliderHoverSpeed";
 import { InfiniteSlider } from "../components/framerMotion/Infinite";
+import { BackgroundLines } from "../components/background-lines";
+import { AnimatedTooltipPreview } from "../components/Developers";
+import { UserFeedback } from "../components/UserFeedback";
 
 function page() {
 
@@ -14,6 +17,7 @@ function page() {
     <main>
       <Header />
       <div className="relative my-12 flex w-full flex-col items-center sm:mt-24">
+     
   <a
     target="_blank"
     rel="noreferrer"
@@ -21,13 +25,21 @@ function page() {
     className="mx-auto flex max-w-fit items-center justify-center space-x-2 overflow-hidden rounded-full bg-blue-500 px-8 py-3 text-white shadow-lg transition-all hover:bg-blue-600 hover:shadow-xl"
   >
     <p className="text-base font-semibold">Farm To Market</p>
+
   </a>
-  <h1 className="mt-10 max-w-lg bg-gradient-to-br from-teal-400 via-indigo-500 to-purple-600 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-3xl sm:text-6xl">
+
+  <BackgroundLines className="flex items-center text-black justify-center w-full flex-col px-4">
+   
+  <h1 className="mt-2 max-w-lg bg-gradient-to-br from-teal-400 via-indigo-500 to-purple-600 bg-clip-text text-center text-4xl font-extrabold text-transparent sm:max-w-3xl sm:text-6xl">
     Farmers Market Direct is your source for all-natural food.
   </h1>
-  <span className="mt-8 max-w-2xl text-balance font-roboto text-center text-lg leading-relaxed text-gray-700 sm:text-xl sm:leading-relaxed">
-    Farm Market Direct, opened in 2024 by Mr. Manoj Lasantha, came to fruition because we love the homegrown, homemade products found at the Farmers Market. Our platform connects these farmers and artisans to you, the consumer, 24/7 So, if you can’t make it to the Farmers Market, don't worry—you can still get high-quality, locally sourced products anytime.
-  </span>
+  <AnimatedTooltipPreview/>
+  <span className="mt-8 max-w-2xl text-balance font-oswald text-center text-base sm:text-lg md:text-xl lg:text-2xl leading-relaxed text-gray-700 sm:leading-relaxed mx-auto px-4">
+  Farm Market Direct, opened in 2024 by Mr. Manoj Lasantha, came to fruition because we love the homegrown, homemade products found at the Farmers Market. Our platform connects these farmers and artisans to you, the consumer, 24/7. So, if you can’t make it to the Farmers Market, don't worry—you can still get high-quality, locally sourced products anytime.
+</span>
+
+    </BackgroundLines>
+
 </div>
 
 {/* <InfiniteSlider durationOnHover={75} gap={24}>
@@ -168,11 +180,14 @@ function page() {
             Learn More →
           </a>
         </div> */}
+
+        
      
       {/* <CilentSection/> */}
       {/* <InfiniteSliderHoverSpeed/> */}
+
       <FAQ/>
-      
+      <UserFeedback/>
      
       <NewFooter/>
     </main>
