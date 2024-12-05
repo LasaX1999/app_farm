@@ -35,7 +35,7 @@ function page() {
             fruition because we love the homegrown, homemade products found at
             the Farmers Market. Our platform connects these farmers and artisans
             to you, the consumer, 24/7. So, if you cant make it to the Farmers
-            Market, don't worry—you can still get high-quality, locally sourced
+            Market, dont worry—you can still get high-quality, locally sourced
             products anytime.
           </span>
         </BackgroundLines>
