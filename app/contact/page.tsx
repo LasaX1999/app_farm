@@ -39,7 +39,7 @@ export default function Form() {
               Contact Us
             </h1>
             <p className="mt-2 text-lg text-gray-600">
-              We'd love to talk about how we can help you.
+              We did love to talk about how we can help you.
             </p>
           </div>
 
@@ -129,7 +129,7 @@ export default function Form() {
                 </div>
                 <div className="mt-4 text-center">
                   <p className="text-sm text-gray-500">
-                    We'll get back to you in 1-2 business days.
+                    We will get back to you in 1-2 business days.
                   </p>
                 </div>
               </form>
@@ -151,7 +151,7 @@ export default function Form() {
                 <div className="grow">
                   <h3 className=" text-lg text-gray-800">Knowledgebase</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    We're here to help with any questions or code.
+                    We are here to help with any questions or code.
                   </p>
                   <a
                     className="mt-3 inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-800"
@@ -226,7 +226,7 @@ export default function Form() {
                 <div className="grow">
                   <h3 className=" text-lg text-gray-800">Contact Us</h3>
                   <p className="mt-2 text-base text-gray-500">
-                    We're here to help you with any questions you may have.
+                    We are here to help you with any questions you may have.
                   </p>
                   <a
                     className="mt-3 inline-flex items-center text-base font-medium text-blue-600 hover:text-blue-800"
