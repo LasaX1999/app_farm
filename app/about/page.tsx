@@ -183,7 +183,7 @@ function page() {
       {/* <InfiniteSliderHoverSpeed/> */}
 
       <FAQ />
-      <UserFeedback />
+      {/* <UserFeedback /> */}
 
       <NewFooter />
     </main>
