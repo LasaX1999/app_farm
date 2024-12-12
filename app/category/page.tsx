@@ -21,19 +21,10 @@ const MIN = 0;
 const MAX = 20000;
 
 export default function CategoryAndSearchPage() {
-  type Product = {
-    description: string;
-    titleImage(titleImage: any): unknown;
-    title: string;
-    price: number;
-  };
   const [selectedCategory, setSelectedCategory] = useState("All");
-  // const [products, setProducts] = useState([]);
-
-  const [products, setProducts] = useState<Product[]>([]);
+  const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-  // const [filteredProducts, setFilteredProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState([]);
   const [priceRange, setPriceRange] = useState([MIN, MAX]); // State to hold the price range
 
   //add cart 
@@ -75,13 +66,13 @@ export default function CategoryAndSearchPage() {
 
   // Filter products by search query and price range
   useEffect(() => {
-    let filtered = products.filter((product) =>
+    let filtered = products.filter((product: any) =>
       product.title.toLowerCase().includes(searchQuery.toLowerCase())
     );
 
     // Filter by price range
     filtered = filtered.filter(
-      (product) =>
+      (product: any) =>
         product.price >= priceRange[0] && product.price <= priceRange[1]
     );
 
@@ -165,7 +156,7 @@ export default function CategoryAndSearchPage() {
         <div className="lg:col-span-3 ">
           {filteredProducts.length > 0 ? (
             <div className="grid grid-cols-1  px-2  md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredProducts.map((product: Product) => (
+              {filteredProducts.map((product: any) => (
                 <div
                   key={product.title}
                   className="bg-white shadow-md cursor-pointer border-[1px] border-gray-350 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
