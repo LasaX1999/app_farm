@@ -14,6 +14,7 @@ import Header from "../components/Header";
 import NewFooter from "../components/NewFooter";
 import { useCart } from "../context/CartContext";
 import toast from "react-hot-toast";
+import { HiMagnifyingGlass } from "react-icons/hi2";
 
 const STEP = 1;
 const MIN = 0;
@@ -28,6 +29,8 @@ export default function CategoryAndSearchPage() {
 
   //add cart 
   const { addToCart } = useCart();
+
+
 
   // Fetch products based on selected category
   useEffect(() => {
@@ -80,8 +83,23 @@ export default function CategoryAndSearchPage() {
     <div >
       <Header/>
       <div className="grid grid-cols-1 lg:grid-cols-4 pb-4 pt-6 gap-8">
+        
         {/* Sidebar for Filters */}
         <div className="lg:col-span-1 bg-white  p-6 shadow-lg border-gray-300 ml-2 border-[1px]  rounded-lg">
+          
+          
+          {/* Search Input */}
+          <div className="mb-8">
+            <h3 className="text-xl text-black mb-4">Search </h3>
+            <input
+              type="text"
+              placeholder="Search products by title  " 
+              className="w-full border p-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </div>
+          
           {/* Category Filter Section */}
           <div className="mb-8">
             <h3 className="text-xl text-black mb-4">Category</h3>
@@ -102,17 +120,6 @@ export default function CategoryAndSearchPage() {
             </div>
           </div>
 
-          {/* Search Input */}
-          <div className="mb-8">
-            <h3 className="text-xl text-black mb-4">Search</h3>
-            <input
-              type="text"
-              placeholder="Search products by title"
-              className="w-full border p-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-            />
-          </div>
 
           {/* Price Range Slider */}
           <div className="mb-8">
@@ -153,7 +160,7 @@ export default function CategoryAndSearchPage() {
               {filteredProducts.map((product) => (
                 <div
                   key={product.title}
-                  className="bg-white shadow-md cursor-pointer border-[1px] border-gray-200 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
+                  className="bg-white shadow-md cursor-pointer border-[1px] border-gray-350 rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-lg"
                 >
                   <div className="relative h-56  w-full">
                     <Image
