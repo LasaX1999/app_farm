@@ -1,10 +1,9 @@
 // app/context/CartContext.tsx
 "use client";
 import { createContext, useState, ReactNode, useContext } from "react";
-
 interface Product {
-  titleImage: any;
-  quantity: number;
+  code: string;
+  titleImage: string;
   quantity: number;
   _id: string;
   title: string;
