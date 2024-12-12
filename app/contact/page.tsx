@@ -113,7 +113,7 @@ export default function Form() {
                     <textarea
                       id="hs-about-contacts-1"
                       name="hs-about-contacts-1"
-                      rows="4"
+                      rows={4}
                       className="py-4 px-5 block w-full border-gray-200 rounded-lg text-base focus:border-blue-500 focus:ring-blue-500"
                       placeholder="Details"
                     ></textarea>
