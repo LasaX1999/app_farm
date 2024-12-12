@@ -75,59 +75,90 @@ const CheckoutPage = ({ amount }: { amount: number }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className=" p-2 rounded-md">
+    <form onSubmit={handleSubmit} className=" p-2 rounded-md rounded-md">
       {!showPaymentForm ? (
-        <button
+        <><span className=" text-2xl">Total Payment For Items :</span><button
           onClick={() => setShowPaymentForm(true)}
           className="text-white w-full py-[4px] px-3 bg-[#050505] mt-2 rounded-md  font-normal"
         >
           Pay Rs.{amount}
-        </button>
+        </button></>
       ) : (
         <>
           {/* User Information Ui */}
-          <div className="max-w-lg mx-auto p-6 rounded-lg">
-  <h1 className="text-3xl font-semibold mb-6 text-gray-800">Complete your order</h1>
-  
-  <div className="space-y-4">
-    <h2 className="text-lg font-medium text-gray-700">Personal Details</h2>
+          {/* <div className="max-w-lg mx-auto p-6 rounded-lg">
+            <h1 className="text-3xl font-semibold mb-6 text-gray-800">
+              Complete your order
+            </h1>
 
-    <div className="grid grid-cols-1 gap-4">
-      <input
-        type="text"
-        placeholder="Full Name"
-        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
-      />
-      <input
-        type="text"
-        placeholder="Mobile No"
-        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
-      />
-    </div>
+            <div className="space-y-4">
+              <h2 className="text-lg font-medium text-gray-700">
+                Personal Details
+              </h2>
 
-    <h2 className="text-lg font-medium text-gray-700">Delivery Address</h2>
+              <div className="grid grid-cols-1 gap-4">
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                />
+                <input
+                  type="text"
+                  placeholder="Mobile No"
+                  className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                />
+              </div>
 
-    <div className="grid grid-cols-1 gap-4">
-      <input
-        type="text"
-        placeholder="City"
-        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
-      />
-      <input
-        type="text"
-        placeholder="Address"
-        className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
-      />
-    </div>
-  </div>
-</div>
+              <h2 className="text-lg font-medium text-gray-700">
+                Delivery Address
+              </h2>
+
+              <div className="grid grid-cols-1 gap-4">
+                <input
+                  type="text"
+                  placeholder="City"
+                  className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                />
+                <input
+                  type="text"
+                  placeholder="Address"
+                  className="w-full py-3 px-4 border border-gray-300 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
+                />
+              </div>
+            </div>
+          </div> */}
+
+          {/* New Infromation details */}
+          <div className=" -mt-4 mb-6 font-sans">
+                <h2 className="text-2xl font-bold text-gray-800">Your Delivery information :</h2>
+
+                <div className="grid sm:grid-cols-2 gap-8 mt-8">
+                  <div>
+                    <input type="text" placeholder="Name"
+                      className="p-2 rounded-md bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none" />
+                  </div>
+                  <div>
+                    <input type="email" placeholder="Email address"
+                      className="p-2 rounded-md bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none" />
+                  </div>
+                  <div>
+                    <input type="text" placeholder="Street address"
+                      className="p-2 rounded-md bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none" />
+                  </div>
+                  <div>
+                    <input type="text" placeholder="City"
+                      className="p-2 rounded-md bg-white text-gray-800 w-full text-sm border-b focus:border-blue-600 outline-none" />
+                  </div>
+                  
+                </div>
+              </div>
 
           <PaymentElement />
           {errorMessage && <div>{errorMessage}</div>}
 
           <button
             disabled={!stripe || loading}
-            className="text-white w-full p-3 bg-black mt-2 rounded-md font-bold disabled:opacity-50 disabled:animate-pulse"
+            className="text-white w-full p-3 bg-black mt-2 rounded-md  disabled:opacity-50 disabled:animate-pulse"
           >
             {!loading ? "Submit Payment" : "Processing..."}
           </button>
