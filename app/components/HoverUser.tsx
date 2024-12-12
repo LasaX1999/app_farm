@@ -18,7 +18,7 @@ const HoverMenu = () => {
         <FaUser className='text-xl ml-2'/>
       </div>
       {isHovered && (
-        <div className="absolute top-full left-1/2 transform -translate-x-1/2 bg-white border border-gray-200 shadow-lg p-2 flex flex-col">
+        <div className="absolute rounded-lg top-full left-1/2 text-sm transform -translate-x-1/2 bg-white border border-gray-200 shadow-lg p-2 flex flex-col">
           <Link href="/sign-in" className="m-1 hover:underline">Sign In</Link>
           <Link href="/sign-up" className="m-1 hover:underline">Register</Link>
         </div>
