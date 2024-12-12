@@ -12,7 +12,7 @@ import EmptyCart from "../components/EmptyCart";
 import CheckoutPage from "../components/CheckoutPage";
 import { Elements } from "@stripe/react-stripe-js";
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
 
 export default function CartPage() {
   const { cart, removeFromCart } = useCart();
@@ -20,7 +20,7 @@ export default function CartPage() {
     cart.reduce((acc, product) => ({ ...acc, [product._id]: 1 }), {})
   );
 
-  const handleQuantityChange = (productId, value) => {
+  const handleQuantityChange = (productId: any, value: string) => {
     setQuantities((prevQuantities) => ({
       ...prevQuantities,
       [productId]: parseInt(value, 10) || 1,
@@ -47,26 +47,23 @@ export default function CartPage() {
     stripe.redirectToCheckout({ sessionId: data.id });
   };
 
-  const handleIncrement = (productId) => {
-    setQuantities((prevQuantities) => ({
+  const handleIncrement = (productId: string) => {
+    setQuantities((prevQuantities: Record<string, number>) => ({
       ...prevQuantities,
-      [productId]: prevQuantities[productId] + 1,
+      [productId]: (prevQuantities[productId] || 1) + 1,
     }));
   };
 
-  const handleDecrement = (productId) => {
-    setQuantities((prevQuantities) => ({
+  const handleDecrement = (productId: string) => {
+    setQuantities((prevQuantities: Record<string, number>) => ({
       ...prevQuantities,
       [productId]: Math.max(prevQuantities[productId] - 1, 1),
     }));
   };
-
   const totalAmount = cart.reduce(
-    (sum, product) => sum + product.price * quantities[product._id],
+    (sum, product) => sum + product.price * (quantities[product._id as keyof typeof quantities] ?? 1),
     0
   );
-
-  const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
   return (
     <div className="container mx-auto">
@@ -113,7 +110,7 @@ export default function CartPage() {
                       >
                         -
                       </button>
-                      <span>{quantities[product._id]}</span>
+                      <span>{quantities[product._id as keyof typeof quantities] ?? 1}</span>
                       <button
                         className="bg-gray-300 text-black px-2 py-1 rounded"
                         onClick={() => handleIncrement(product._id)}
@@ -137,7 +134,7 @@ export default function CartPage() {
                     </button>
                     <MdOutlineDeleteForever className="text-red-500 mb-1 text-xl" />
                     <p className="text-base leading-none text-gray-800">
-                      Rs.{product.price * quantities[product._id]}
+                      Rs.{product.price * quantities[product._id as keyof typeof quantities]}
                     </p>
                   </div>
                 </div>
