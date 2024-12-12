@@ -44,7 +44,7 @@ export default function Form() {
           </div>
 
           <div className="mt-12 grid lg:grid-cols-2 shadow-2xl gap-8 lg:gap-20">
-            <div className="flex flex-col border shadow-lg border-gray-200 rounded-xl p-6 sm:p-8 lg:p-10 bg-white ">
+            <div className="flex flex-col border shadow-lg border-gray-300 rounded-xl p-6 sm:p-8 lg:p-10 bg-white ">
               <h2 className="mb-8 text-2xl  text-gray-800">Fill in the Form</h2>
 
               <form onSubmit={handleSubmit}>
