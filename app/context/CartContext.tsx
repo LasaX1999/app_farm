@@ -1,8 +1,9 @@
 // app/context/CartContext.tsx
-'use client'
-import { createContext, useState, ReactNode, useContext } from 'react';
+"use client";
+import { createContext, useState, ReactNode, useContext } from "react";
 
 interface Product {
+  titleImage: any;
   quantity: number;
   quantity: number;
   _id: string;
@@ -28,11 +29,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const removeFromCart = (productId: string) => {
-    setCart(cart.filter(product => product._id !== productId));
+    setCart(cart.filter((product) => product._id !== productId));
   };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart,removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   );
@@ -41,7 +42,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) {
-    throw new Error('useCart must be used within a CartProvider');
+    throw new Error("useCart must be used within a CartProvider");
   }
   return context;
 };
