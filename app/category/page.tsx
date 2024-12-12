@@ -21,10 +21,19 @@ const MIN = 0;
 const MAX = 20000;
 
 export default function CategoryAndSearchPage() {
+  type Product = {
+    description: string;
+    titleImage(titleImage: any): unknown;
+    title: string;
+    price: number;
+  };
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
+
+  const [products, setProducts] = useState<Product[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredProducts, setFilteredProducts] = useState([]);
+  // const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [priceRange, setPriceRange] = useState([MIN, MAX]); // State to hold the price range
 
   //add cart 
@@ -81,25 +90,25 @@ export default function CategoryAndSearchPage() {
 
   return (
     <div >
-      <Header/>
+      <Header />
       <div className="grid grid-cols-1 lg:grid-cols-4 pb-4 pt-6 gap-8">
-        
+
         {/* Sidebar for Filters */}
         <div className="lg:col-span-1 bg-white  p-6 shadow-lg border-gray-300 ml-2 border-[1px]  rounded-lg">
-          
-          
+
+
           {/* Search Input */}
           <div className="mb-8">
             <h3 className="text-xl text-black mb-4">Search </h3>
             <input
               type="text"
-              placeholder="Search products by title  " 
+              placeholder="Search products by title  "
               className="w-full border p-3 rounded-lg text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-600"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
-          
+
           {/* Category Filter Section */}
           <div className="mb-8">
             <h3 className="text-xl text-black mb-4">Category</h3>
@@ -107,11 +116,10 @@ export default function CategoryAndSearchPage() {
               {["All", "Meat", "Fruit", "Vegetables", "Seafood"].map((category) => (
                 <button
                   key={category}
-                  className={`w-full py-2 px-4 border rounded-lg text-gray-600 transition-all ${
-                    selectedCategory === category
-                      ? "bg-green-600 text-white"
-                      : "hover:bg-green-200"
-                  }`}
+                  className={`w-full py-2 px-4 border rounded-lg text-gray-600 transition-all ${selectedCategory === category
+                    ? "bg-green-600 text-white"
+                    : "hover:bg-green-200"
+                    }`}
                   onClick={() => setSelectedCategory(category)}
                 >
                   {category}
@@ -182,10 +190,10 @@ export default function CategoryAndSearchPage() {
                       Rs.{product.price}
                     </p>
                     <button className="w-full bg-green-700 text-white py-2 rounded-lg transition duration-300 hover:bg-green-800 mt-4"
-                    onClick={() => {
-                      addToCart(product);
-                      toast.success('Successfully added to cart!');
-                    }}>
+                      onClick={() => {
+                        addToCart(product);
+                        toast.success('Successfully added to cart!');
+                      }}>
                       Add to Cart
                     </button>
                   </div>
@@ -199,7 +207,7 @@ export default function CategoryAndSearchPage() {
           )}
         </div>
       </div>
-      <NewFooter/>
+      <NewFooter />
     </div>
   );
 }
