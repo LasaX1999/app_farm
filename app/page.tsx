@@ -16,7 +16,7 @@ import ChatbotPage from "./components/ChatBot";
 
 export default function Home() {
 
-  const words = ["Vegetables", "Fruits", "Seeds", "Meat", "Eggs"];
+  const words = ["Vegetables", "Fruits", "Sea Foods", "Meat", "Eggs"];
   const controls = useAnimation();
 
   const fadeIn = {
